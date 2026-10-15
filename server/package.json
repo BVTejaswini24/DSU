@@ -1,0 +1,33 @@
+{
+  "name": "carbontwin-server",
+  "version": "1.0.0",
+  "description": "CarbonTwin Express Backend",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.7.2",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "groq-sdk": "^0.3.3",
+    "ioredis": "^5.3.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.4.0",
+    "morgan": "^1.10.0",
+    "multer": "^2.1.1",
+    "node-cron": "^3.0.3",
+    "socket.io": "^4.8.3",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

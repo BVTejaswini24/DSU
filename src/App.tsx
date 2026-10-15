@@ -1,0 +1,38 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { LandingPage } from './pages/LandingPage';
+import { HowItWorksPage } from './pages/HowItWorksPage';
+import { EnterpriseDemoPage } from './pages/EnterpriseDemoPage';
+import { DashboardPage } from './pages/DashboardPage';
+import { AuthPage } from './pages/AuthPage';
+import { Toaster } from './components/ui/sonner';
+
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const token = localStorage.getItem('carbontwin_token');
+  if (!token) return <Navigate to="/auth" replace />;
+  return <>{children}</>;
+}
+
+export function App() {
+  return (
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/enterprise" element={<EnterpriseDemoPage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route 
+          path="/dashboard/*" 
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+      {/* Global toaster so cold-start hints work on every page (including Auth) */}
+      <Toaster theme="dark" position="top-center" richColors closeButton />
+    </Router>
+  );
+}
