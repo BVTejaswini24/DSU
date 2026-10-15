@@ -98,7 +98,7 @@ const exportESG = async (req, res) => {
     res.setHeader('Content-Type', 'text/csv; charset=utf-8');
     res.setHeader(
       'Content-Disposition',
-      `attachment; filename="CarbonTwin_ESG_Report_${new Date().toISOString().slice(0, 10)}.csv"`
+      `attachment; filename="CarbonIQ_ESG_Report_${new Date().toISOString().slice(0, 10)}.csv"`
     );
     res.send(csvContent);
   } catch (err) {

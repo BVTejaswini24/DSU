@@ -2,7 +2,6 @@
  * dashboardController.js
  *
  * GET /api/dashboard/metrics      - Unified user, chart and recent activity payload
- * GET /api/dashboard/leaderboard  - Top 10 users by Eco-Score (Redis cached)
  * GET /api/dashboard/activity     - Paginated recent activity log
  *
  * Every metric is computed from real ActivityLog documents – no synthetic seeding.
@@ -12,7 +11,6 @@ const mongoose = require('mongoose');
 
 const User = require('../models/User');
 const ActivityLog = require('../models/ActivityLog');
-const { get, set } = require('../services/RedisService');
 const { CACHE } = require('../config/constants');
 
 const ensureDb = (res) => {
@@ -61,47 +59,6 @@ const getMetrics = async (req, res) => {
   } catch (err) {
     console.error('[dashboardController] getMetrics error:', err);
     res.status(500).json({ error: 'Failed to load dashboard metrics' });
-  }
-};
-
-const getLeaderboard = async (req, res) => {
-  try {
-    if (!ensureDb(res)) return;
-
-    const cacheKey = 'leaderboard:global';
-    const cached = await get(cacheKey);
-    if (cached) {
-      return res.json({ data: JSON.parse(cached), fromCache: true });
-    }
-
-    // Only show users that actually have activity – avoid showing zero-score signups as ranks
-    const users = await User.find({
-      $or: [
-        { ecoScore: { $gt: 0 } },
-        { totalCarbonSaved: { $gt: 0 } }
-      ]
-    })
-      .sort({ ecoScore: -1, totalCarbonSaved: -1 })
-      .limit(10)
-      .lean();
-
-    const leaderboard = users.map((u, i) => ({
-      id: u._id,
-      rank: i + 1,
-      name: u.name,
-      score: u.ecoScore || 0,
-      streak: u.currentStreak || 0,
-      carbonSaved: Number((u.totalCarbonSaved || 0).toFixed(2)),
-      avatar:
-        u.avatarUrl ||
-        `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(u.name)}`
-    }));
-
-    await set(cacheKey, JSON.stringify(leaderboard), 30);
-    res.json({ data: leaderboard, fromCache: false });
-  } catch (err) {
-    console.error('[dashboardController] getLeaderboard error:', err);
-    res.status(500).json({ error: 'Failed to fetch leaderboard' });
   }
 };
 
@@ -208,4 +165,4 @@ const generateChartDataFromDB = async (userId, period) => {
   return fullData;
 };
 
-module.exports = { getMetrics, getLeaderboard, getActivity };
+module.exports = { getMetrics, getActivity };

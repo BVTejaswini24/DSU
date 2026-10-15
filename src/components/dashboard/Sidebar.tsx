@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
   Activity,
-  Trophy,
   Settings,
   Bot,
   Leaf,
@@ -22,7 +21,6 @@ const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
   { icon: Activity, label: 'Activity Log', path: '/dashboard/activity' },
   { icon: Sliders, label: 'Simulator', path: '/dashboard/simulator' },
-  { icon: Trophy, label: 'Leaderboard', path: '/dashboard/leaderboard' },
   { icon: Bot, label: 'AI Coach', path: '/dashboard/coach' },
   { icon: MapPin, label: 'Transit Scan', path: '/dashboard/scan' },
   { icon: Settings, label: 'Settings', path: '/dashboard/settings' }
@@ -70,7 +68,7 @@ export function Sidebar({ user }: SidebarProps) {
             <Leaf className="w-4 h-4 text-emerald-500" />
           </div>
           <span className="text-lg font-bold tracking-tight text-foreground">
-            Carbon<span className="text-emerald-500">Twin</span>
+            Carbon<span className="text-emerald-500">IQ</span>
           </span>
         </Link>
         <button

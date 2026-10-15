@@ -120,17 +120,6 @@ export interface DashboardMetrics {
   recentActivity: ActivityEntry[];
 }
 
-export interface LeaderboardEntry {
-  id: string;
-  rank: number;
-  name: string;
-  score: number;
-  streak: number;
-  carbonSaved: number;
-  avatar: string;
-  isCurrentUser?: boolean;
-}
-
 export interface Suggestion {
   id: string;
   text: string;
@@ -193,8 +182,6 @@ export const api = {
   dashboard: {
     getMetrics: (period: 'weekly' | 'monthly' | 'yearly' = 'monthly') =>
       request<DashboardMetrics>(`/dashboard/metrics?period=${period}`),
-    getLeaderboard: () =>
-      request<{ data: LeaderboardEntry[] }>('/dashboard/leaderboard').then((r) => r.data),
     getActivity: (limit = 50) =>
       request<{ data: ActivityEntry[] }>(`/dashboard/activity?limit=${limit}`).then((r) => r.data)
   },

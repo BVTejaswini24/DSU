@@ -1,6 +1,6 @@
-# 🌍 CarbonTwin
+# 🌍 CarbonIQ
 
-**CarbonTwin** is a digital sustainability platform that turns invisible digital and lifestyle emissions into a concrete, trackable Eco-Score. Every metric on the dashboard is computed from real activity logged by the user — there is **no synthetic or seeded data**.
+**CarbonIQ** is a digital sustainability platform that turns invisible digital and lifestyle emissions into a concrete, trackable Eco-Score. Every metric on the dashboard is computed from real activity logged by the user — there is **no synthetic or seeded data**.
 
 It was originally built and won [hackathon name] under tight time pressure. This repo is the cleaned-up, demo-ready version: every button is wired, every number is real, and the AI features fail loudly when their keys are missing instead of silently faking results.
 
@@ -40,7 +40,7 @@ It was originally built and won [hackathon name] under tight time pressure. This
 ├── server/                 Express API
 │   ├── index.js            Bootstrap + bootstrap order
 │   └── src/
-│       ├── controllers/    auth, dashboard, ingest, simulator, chat, suggestion, scan, export, trade, stats
+│       ├── controllers/    auth, dashboard, ingest, simulator, chat, suggestion, scan, export, stats
 │       ├── services/       CarbonEngine, AIService, SocketService, RedisService
 │       ├── models/         User, Organization, ActivityLog, Suggestion
 │       ├── jobs/           Daily nudgeCron (8 AM IST)
@@ -105,7 +105,7 @@ VITE_SOCKET_URL=http://localhost:3001
 1. Open `chrome://extensions`.
 2. Enable Developer Mode.
 3. Load unpacked → select the `extension/` folder.
-4. The extension reads your CarbonTwin auth token from the dashboard tab and POSTs telemetry every 5 minutes.
+4. The extension reads your CarbonIQ auth token from the dashboard tab and POSTs telemetry every 5 minutes.
 
 ---
 
@@ -132,7 +132,6 @@ VITE_SOCKET_URL=http://localhost:3001
 | POST | `/suggestions/generate` | ✓ | Force regenerate |
 | POST | `/sustainability/scan-ticket` | ✓ | Vision-based ticket scanner |
 | GET | `/export/esg` | ✓ | Personal ESG CSV/JSON |
-| POST | `/trade/points` | ✓ | Atomic P2P Eco-Point transfer |
 
 ---
 

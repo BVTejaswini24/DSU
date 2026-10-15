@@ -131,7 +131,7 @@ export function ActivityLogPage() {
             Activity Log
           </CardTitle>
           <CardDescription>
-            Every action you log is computed against the CarbonTwin engine with real CO2 and INR impact.
+            Every action you log is computed against the CarbonIQ engine with real CO2 and INR impact.
           </CardDescription>
         </div>
         <Button

@@ -16,7 +16,7 @@ const steps = [
   },
   {
     title: "2. AI Digital Twin",
-    description: "CarbonTwin creates a real-time digital mirror of your organization's energy usage, identifying invisible waste patterns instantly.",
+    description: "CarbonIQ creates a real-time digital mirror of your organization's energy usage, identifying invisible waste patterns instantly.",
     icon: Cpu,
     color: "blue"
   },
@@ -50,7 +50,7 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl font-bold mb-4"
           >
-            How <span className="text-emerald-500">CarbonTwin</span> Works
+            How <span className="text-emerald-500">CarbonIQ</span> Works
           </motion.h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             From local data ingestion to global ESG compliance, we automate every step of your digital sustainability journey.

@@ -127,7 +127,6 @@ const actionSuggestion = async (req, res) => {
         };
 
         emitUpdate(user._id.toString(), updatedUser);
-        await del('leaderboard:global');
         await del('stats:global');
       }
     }

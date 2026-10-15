@@ -54,8 +54,6 @@ const updateUserTotals = async (userId, carbonImpact, costImpact) => {
 
   user.recalculateEcoScore();
   await user.save();
-
-  await del('leaderboard:global');
   await del('stats:global');
 
   emitUpdate(userId.toString(), {

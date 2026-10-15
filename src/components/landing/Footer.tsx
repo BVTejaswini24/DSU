@@ -8,7 +8,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <Leaf className="w-6 h-6 text-emerald-500" />
               <span className="text-xl font-bold tracking-tight text-foreground">
-                Carbon<span className="text-emerald-500">Twin</span>
+                Carbon<span className="text-emerald-500">IQ</span>
               </span>
             </div>
             <p className="text-muted-foreground text-sm mb-6">
@@ -154,7 +154,7 @@ export function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} CarbonTwin Inc. All rights reserved.
+            © {new Date().getFullYear()} CarbonIQ Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-2 mt-4 md:mt-0">
             <span className="flex h-2 w-2 rounded-full bg-emerald-500"></span>

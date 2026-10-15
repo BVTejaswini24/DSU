@@ -34,7 +34,7 @@ export function Navbar() {
             
           </div>
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Carbon<span className="text-emerald-500">Twin</span>
+            Carbon<span className="text-emerald-500">IQ</span>
           </span>
         </Link>
 

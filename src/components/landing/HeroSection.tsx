@@ -47,7 +47,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            CarbonTwin measures your real digital and lifestyle carbon footprint, gamifies the
+            CarbonIQ measures your real digital and lifestyle carbon footprint, gamifies the
             reduction with Eco-Scores, and uses an AI coach grounded in your activity to help you
             save money and CO₂.
           </p>

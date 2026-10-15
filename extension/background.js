@@ -269,7 +269,7 @@ async function findDashboardTabs(config) {
 async function extractTokenFromDashboardTabs(config) {
   const tabs = await findDashboardTabs(config);
   if (tabs.length === 0) {
-    return { ok: false, error: 'open the CarbonTwin site & log in first' };
+    return { ok: false, error: 'open the CarbonIQ site & log in first' };
   }
   for (const tab of tabs) {
     try {

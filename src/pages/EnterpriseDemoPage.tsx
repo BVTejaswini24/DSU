@@ -68,7 +68,7 @@ export function EnterpriseDemoPage() {
               transition={{ delay: 0.1 }}
               className="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed"
             >
-              CarbonTwin Enterprise provides multi-national organizations the tools to track, report, and reduce their digital carbon footprint across the entire value chain.
+              CarbonIQ Enterprise provides multi-national organizations the tools to track, report, and reduce their digital carbon footprint across the entire value chain.
             </motion.p>
             
             <motion.div 
@@ -147,7 +147,7 @@ export function EnterpriseDemoPage() {
              <div className="relative z-10 space-y-8">
                 <h2 className="text-4xl md:text-5xl font-black">Built for teams that ship.</h2>
                 <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                  CarbonTwin is open-source and self-hostable. Sign up to try the same dashboard
+                  CarbonIQ is open-source and self-hostable. Sign up to try the same dashboard
                   every team member sees, then deploy it to your own org with one repo.
                 </p>
                 <Link to="/auth">
