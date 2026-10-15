@@ -1,4 +1,4 @@
-﻿import { Cloud, IndianRupee, Trophy, Flame, Loader2 } from 'lucide-react';
+import { Cloud, IndianRupee, Trophy, Flame, Loader2 } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { useDashboard } from '../../services/DashboardContext';
@@ -11,7 +11,7 @@ export function MetricsCards() {
       title: 'Total Carbon Saved',
       value: `${(user?.totalCarbonSaved ?? 0).toFixed(2)} kg`,
       subtext: 'Across every action you logged',
-      icon: <Cloud className="h-4 w-4 text-blue-400" />
+      icon: <Cloud className="h-4 w-4 text-[#A9B85A]" />
     },
     {
       title: 'Total Rupees Saved',
@@ -19,7 +19,7 @@ export function MetricsCards() {
         maximumFractionDigits: 0
       })}`,
       subtext: 'Estimated savings from greener habits',
-      icon: <IndianRupee className="h-4 w-4 text-cyan-400" />
+      icon: <IndianRupee className="h-4 w-4 text-primary" />
     },
     {
       title: 'Eco-Score',
@@ -52,7 +52,7 @@ export function MetricsCards() {
           </CardHeader>
           <CardContent>
             {loading && !user ? (
-              <Loader2 className="h-6 w-6 animate-spin text-cyan-400" />
+              <Loader2 className="h-6 w-6 animate-spin text-primary" />
             ) : (
               <>
                 <div className="text-2xl font-bold text-foreground">{card.value}</div>

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Upload,
@@ -125,7 +125,7 @@ export function CommuteScanner() {
         <Card className="bg-card border-border overflow-hidden relative">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Ticket className="w-5 h-5 text-cyan-400" />
+              <Ticket className="w-5 h-5 text-primary" />
               Transit ticket
             </CardTitle>
             <CardDescription>Bus, metro or train ticket. JPEG or PNG, up to 10MB.</CardDescription>
@@ -139,8 +139,8 @@ export function CommuteScanner() {
                   onChange={onFileChange}
                   accept="image/png,image/jpeg"
                 />
-                <div className="w-16 h-16 rounded-full bg-cyan-400/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Upload className="w-8 h-8 text-cyan-400" />
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Upload className="w-8 h-8 text-primary" />
                 </div>
                 <div className="text-center">
                   <p className="font-medium">Drop your ticket here</p>
@@ -160,7 +160,7 @@ export function CommuteScanner() {
                     initial={{ top: '0%' }}
                     animate={{ top: '100%' }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-                    className="absolute left-0 right-0 h-1 bg-cyan-500 shadow-[0_0_15px_rgba(72,217,245,0.8)] z-10"
+                    className="absolute left-0 right-0 h-1 bg-primary  z-10"
                   />
                 )}
 
@@ -172,7 +172,7 @@ export function CommuteScanner() {
                       exit={{ opacity: 0 }}
                       className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center flex-col gap-3"
                     >
-                      <Loader2 className="w-8 h-8 text-cyan-400 animate-spin" />
+                      <Loader2 className="w-8 h-8 text-primary animate-spin" />
                       <p className="text-sm font-bold text-white tracking-widest uppercase">
                         Reading ticketâ€¦
                       </p>
@@ -195,7 +195,7 @@ export function CommuteScanner() {
 
             {!result && (
               <Button
-                className="w-full bg-cyan-500 hover:bg-cyan-500 h-11"
+                className="w-full bg-primary hover:bg-primary h-11"
                 disabled={!file || isScanning}
                 onClick={handleUpload}
               >
@@ -220,25 +220,25 @@ export function CommuteScanner() {
               exit={{ opacity: 0, x: -20 }}
               key="result"
             >
-              <Card className="bg-cyan-400/5 border-cyan-400/20 h-full">
+              <Card className="bg-primary/5 border-primary/20 h-full">
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-cyan-400 flex items-center gap-2">
+                    <CardTitle className="text-primary flex items-center gap-2">
                       <CheckCircle2 className="w-5 h-5" />
                       Scan successful
                     </CardTitle>
-                    <Badge className="bg-cyan-400/20 text-cyan-400 border-cyan-400/30 px-3">
+                    <Badge className="bg-primary/20 text-primary border-primary/30 px-3">
                       +{result.pointsAwarded} points
                     </Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-center gap-4 p-4 rounded-xl bg-black/20 border border-white/5">
-                    <div className="h-12 w-12 rounded-full bg-cyan-400/20 flex items-center justify-center">
+                    <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
                       {result.transportMode === 'train' ? (
-                        <Train className="text-cyan-400" />
+                        <Train className="text-primary" />
                       ) : (
-                        <Bus className="text-cyan-400" />
+                        <Bus className="text-primary" />
                       )}
                     </div>
                     <div className="flex-1 flex items-center justify-between">
@@ -259,11 +259,11 @@ export function CommuteScanner() {
                     <motion.h3
                       initial={{ scale: 0.5 }}
                       animate={{ scale: 1 }}
-                      className="text-5xl font-black text-cyan-400 drop-shadow-[0_0_15px_rgba(72,217,245,0.4)]"
+                      className="text-5xl font-black text-primary "
                     >
                       {result.carbonSaved.toFixed(2)} kg
                     </motion.h3>
-                    <p className="text-xs text-cyan-400/80 mt-2 font-medium flex items-center justify-center gap-1">
+                    <p className="text-xs text-primary/80 mt-2 font-medium flex items-center justify-center gap-1">
                       <Sparkles className="w-3 h-3" />~{result.distanceKm.toFixed(1)} km of {result.transportMode} Â· â‚¹{result.rupeesSaved.toFixed(0)} saved
                     </p>
                   </div>

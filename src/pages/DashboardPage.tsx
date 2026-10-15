@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import {
   Download,
@@ -96,7 +96,7 @@ function MobileDashboardNav() {
               to={item.path}
               className={`shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs border transition-colors ${
                 isActive
-                  ? 'bg-cyan-400/10 text-cyan-400 border-cyan-400/30'
+                  ? 'bg-primary/10 text-primary border-primary/30'
                   : 'bg-secondary/40 text-muted-foreground border-border'
               }`}
             >
@@ -150,13 +150,13 @@ function DashboardShell() {
                   <span className="text-sm font-medium text-amber-300">Syncing</span>
                 </div>
               ) : (
-                <div className="flex flex-col bg-cyan-400/10 border border-cyan-400/20 px-3 py-1.5 rounded-full">
+                <div className="flex flex-col bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse" />
-                    <span className="text-sm font-medium text-cyan-400">Live</span>
+                    <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-sm font-medium text-primary">Live</span>
                   </div>
                   {lastSyncedAt && (
-                    <span className="text-[10px] text-cyan-300/80">
+                    <span className="text-[10px] text-primary/80/80">
                       Last synced at{' '}
                       {lastSyncedAt.toLocaleTimeString('en-IN', {
                         hour: '2-digit',

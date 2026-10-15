@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Building2, 
   ShieldCheck, 
@@ -38,7 +38,7 @@ const enterpriseFeatures = [
 
 export function EnterpriseDemoPage() {
   return (
-    <div className="min-h-screen bg-[#080D18] text-white">
+    <div className="min-h-screen bg-[#0B0B0A] text-foreground">
       <Navbar />
       
       <main className="pt-32 pb-20">
@@ -48,7 +48,7 @@ export function EnterpriseDemoPage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#A9B85A]/10 border border-[#A9B85A]/20 text-[#A9B85A] text-xs font-bold uppercase tracking-widest"
             >
               <Zap className="w-3 h-3" />
               Enterprise Solutions
@@ -59,7 +59,7 @@ export function EnterpriseDemoPage() {
               animate={{ opacity: 1, y: 0 }}
               className="text-6xl md:text-7xl font-black tracking-tight leading-[1.05]"
             >
-              Sustainability at <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Scale.</span>
+              Sustainability at <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A9B85A] to-[#D4E76A]">Scale.</span>
             </motion.h1>
             
             <motion.p 
@@ -78,7 +78,7 @@ export function EnterpriseDemoPage() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Link to="/auth">
-                <Button size="lg" className="h-14 px-8 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-lg font-bold">
+                <Button size="lg" className="h-14 px-8 bg-[#A9B85A] hover:bg-[#A9B85A]/90 text-[#0B0B0A] rounded-xl text-lg font-bold">
                   Try the live demo <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
@@ -107,10 +107,10 @@ export function EnterpriseDemoPage() {
             />
             <div className="absolute inset-0 flex items-center justify-center z-20">
                <div className="text-center space-y-4">
-                  <div className="w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center mx-auto shadow-[0_0_50px_rgba(37,99,235,0.5)] animate-pulse cursor-pointer">
-                    <ChevronRight className="w-10 h-10 text-white ml-1" />
+                  <div className="w-20 h-20 rounded-full bg-[#A9B85A] flex items-center justify-center mx-auto shadow-[0_0_50px_rgba(169,184,90,0.35)] animate-pulse cursor-pointer">
+                    <ChevronRight className="w-10 h-10 text-[#0B0B0A] ml-1" />
                   </div>
-                  <p className="font-bold uppercase tracking-widest text-sm text-blue-400">Watch Enterprise Walkthrough</p>
+                  <p className="font-bold uppercase tracking-widest text-sm text-[#A9B85A]">Watch Enterprise Walkthrough</p>
                </div>
             </div>
           </motion.div>
@@ -128,8 +128,8 @@ export function EnterpriseDemoPage() {
                 transition={{ delay: index * 0.1 }}
                 className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-white/10 transition-all group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <feature.icon className="w-6 h-6 text-blue-400" />
+                <div className="w-12 h-12 rounded-2xl bg-[#A9B85A]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <feature.icon className="w-6 h-6 text-[#A9B85A]" />
                 </div>
                 <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
                 <p className="text-zinc-500 text-sm leading-relaxed">
@@ -142,16 +142,16 @@ export function EnterpriseDemoPage() {
 
         {/* CTA */}
         <section className="container mx-auto px-4 py-24">
-          <div className="max-w-5xl mx-auto rounded-[40px] bg-gradient-to-br from-blue-600 to-cyan-500 p-12 md:p-20 text-center relative overflow-hidden">
+          <div className="max-w-5xl mx-auto rounded-[40px] bg-gradient-to-br from-[#A9B85A] to-[#D4E76A] p-12 md:p-20 text-center relative overflow-hidden">
              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
              <div className="relative z-10 space-y-8">
                 <h2 className="text-4xl md:text-5xl font-black">Built for teams that ship.</h2>
-                <p className="text-xl text-white/80 max-w-2xl mx-auto">
+                <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
                   CarbonIQ is open-source and self-hostable. Sign up to try the same dashboard
                   every team member sees, then deploy it to your own org with one repo.
                 </p>
                 <Link to="/auth">
-                  <Button size="lg" className="h-16 px-12 bg-white text-blue-600 hover:bg-zinc-100 rounded-2xl text-xl font-black shadow-xl">
+                  <Button size="lg" className="h-16 px-12 bg-white text-[#0B0B0A] hover:bg-zinc-100 rounded-2xl text-xl font-black shadow-xl">
                     Try the live demo
                   </Button>
                 </Link>

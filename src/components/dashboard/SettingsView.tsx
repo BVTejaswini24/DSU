@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { User, Shield, Save, Fingerprint, Lock, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -111,7 +111,7 @@ export function SettingsView() {
       <Card className="bg-card border-border">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <User className="w-5 h-5 text-cyan-400" />
+            <User className="w-5 h-5 text-primary" />
             <CardTitle>Profile</CardTitle>
           </div>
           <CardDescription>Your display name on leaderboards and reports.</CardDescription>
@@ -139,7 +139,7 @@ export function SettingsView() {
           <Button
             onClick={handleProfileSave}
             disabled={savingProfile || !user}
-            className="bg-cyan-500 hover:bg-cyan-500"
+            className="bg-primary hover:bg-primary"
           >
             {savingProfile ? (
               <>
@@ -157,7 +157,7 @@ export function SettingsView() {
       <Card className="bg-card border-border">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <Shield className="w-5 h-5 text-blue-500" />
+            <Shield className="w-5 h-5 text-[#A9B85A]" />
             <CardTitle>Password</CardTitle>
           </div>
           <CardDescription>Change the password used to sign in.</CardDescription>

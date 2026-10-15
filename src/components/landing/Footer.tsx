@@ -1,4 +1,4 @@
-﻿import { Leaf, Twitter, Linkedin, Github } from 'lucide-react';
+import { Leaf, Twitter, Linkedin, Github } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="bg-background border-t border-border pt-16 pb-8">
@@ -6,9 +6,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <Leaf className="w-6 h-6 text-cyan-400" />
+              <Leaf className="w-6 h-6 text-primary" />
               <span className="text-xl font-bold tracking-tight text-foreground">
-                Carbon<span className="text-cyan-400">IQ</span>
+                Carbon<span className="text-primary">IQ</span>
               </span>
             </div>
             <p className="text-muted-foreground text-sm mb-6">
@@ -16,13 +16,13 @@ export function Footer() {
               losses. Built for modern, eco-conscious startups.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-cyan-400 transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-cyan-400 transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-cyan-400 transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Github className="w-5 h-5" />
               </a>
             </div>
@@ -34,7 +34,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   Features
                 </a>
@@ -42,7 +42,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   Chrome Extension
                 </a>
@@ -50,7 +50,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   AI Coach
                 </a>
@@ -58,7 +58,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   Pricing
                 </a>
@@ -72,7 +72,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   Documentation
                 </a>
@@ -80,7 +80,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   API Reference
                 </a>
@@ -88,7 +88,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   Blog
                 </a>
@@ -96,7 +96,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   ESG Guide
                 </a>
@@ -110,7 +110,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   About Us
                 </a>
@@ -118,7 +118,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   Careers
                 </a>
@@ -126,7 +126,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   Privacy Policy
                 </a>
@@ -134,7 +134,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   
                   Terms of Service
                 </a>
@@ -148,7 +148,7 @@ export function Footer() {
             © {new Date().getFullYear()} CarbonIQ Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-2 mt-4 md:mt-0">
-            <span className="flex h-2 w-2 rounded-full bg-cyan-400"></span>
+            <span className="flex h-2 w-2 rounded-full primary"></span>
             <span className="text-sm text-muted-foreground">
               All systems operational
             </span>

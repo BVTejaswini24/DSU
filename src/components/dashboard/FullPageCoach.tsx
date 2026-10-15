@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Send, Sparkles, Brain, Zap, ShieldCheck, RefreshCw, User as UserIcon } from 'lucide-react';
 
@@ -28,7 +28,7 @@ export function FullPageCoach() {
     {
       role: 'assistant',
       content:
-        "I have full context on your activity. Ask me to interpret your numbers, suggest the next best action, or explain how a habit affects your score."
+"I have full context on your activity. Ask me to interpret your numbers, suggest the next best action, or explain how a habit affects your score."
     }
   ]);
   const [input, setInput] = useState('');
@@ -75,8 +75,8 @@ export function FullPageCoach() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[calc(100vh-12rem)]">
       <div className="lg:col-span-1 space-y-4">
-        <Card className="bg-cyan-400/5 border-cyan-400/20 p-4">
-          <h3 className="text-sm font-bold text-cyan-400 flex items-center gap-2 mb-3">
+        <Card className="bg-primary/5 border-primary/20 p-4">
+          <h3 className="text-sm font-bold text-primary flex items-center gap-2 mb-3">
             <Brain className="w-4 h-4" />
             Live context
           </h3>
@@ -98,8 +98,8 @@ export function FullPageCoach() {
           </div>
         </Card>
 
-        <Card className="bg-blue-500/5 border-blue-500/20 p-4">
-          <h3 className="text-sm font-bold text-blue-400 flex items-center gap-2 mb-3">
+        <Card className="bg-[#A9B85A]/5 border-[#A9B85A]/20 p-4">
+          <h3 className="text-sm font-bold text-[#A9B85A] flex items-center gap-2 mb-3">
             <Zap className="w-4 h-4" />
             Your insights
           </h3>
@@ -114,23 +114,23 @@ export function FullPageCoach() {
       <Card className="lg:col-span-3 flex flex-col bg-card border-border overflow-hidden">
         <div className="p-4 border-b border-border bg-secondary/20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-cyan-500 p-2 rounded-xl shadow-[0_0_15px_rgba(72,217,245,0.3)]">
-              <Bot className="w-5 h-5 text-white" />
+            <div className="bg-primary p-2 rounded-xl ">
+              <Bot className="w-5 h-5 text-[#0B0B0A]" />
             </div>
             <div>
               <h2 className="font-bold text-foreground flex items-center gap-2">
                 Eco-Coach Pro
                 <Sparkles className="w-3 h-3 text-yellow-400" />
               </h2>
-              <p className="text-[10px] text-cyan-400 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <p className="text-[10px] text-primary flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full primary animate-pulse" />
                 Groq AI · grounded in your real activity
               </p>
             </div>
           </div>
           <Badge
             variant="outline"
-            className="bg-cyan-400/10 text-cyan-400 border-cyan-400/20 px-2 py-0.5 rounded-full text-[10px] font-bold"
+            className="bg-primary/10 text-primary border-primary/20 px-2 py-0.5 rounded-full text-[10px] font-bold"
           >
             <ShieldCheck className="w-3 h-3 mr-1 inline" />
             Private context
@@ -153,19 +153,19 @@ export function FullPageCoach() {
                 >
                   <div
                     className={`mt-1 h-8 w-8 rounded-full flex items-center justify-center shrink-0 ${
-                      msg.role === 'user' ? 'bg-blue-600' : 'bg-cyan-500'
+                      msg.role === 'user' ? 'bg-[#A9B85A]' : 'bg-primary'
                     }`}
                   >
                     {msg.role === 'user' ? (
-                      <UserIcon className="w-4 h-4 text-white" />
+                      <UserIcon className="w-4 h-4 text-[#0B0B0A]" />
                     ) : (
-                      <Bot className="w-4 h-4 text-white" />
+                      <Bot className="w-4 h-4 text-[#0B0B0A]" />
                     )}
                   </div>
                   <div
                     className={`rounded-2xl px-4 py-3 text-sm shadow-sm ${
                       msg.role === 'user'
-                        ? 'bg-cyan-500 text-white rounded-tr-sm'
+                        ? 'bg-primary text-[#0B0B0A] rounded-tr-sm'
                         : 'bg-secondary/80 text-foreground rounded-tl-sm border border-border'
                     }`}
                   >
@@ -176,12 +176,12 @@ export function FullPageCoach() {
             ))}
             {isTyping && (
               <div className="flex justify-start gap-3">
-                <div className="mt-1 h-8 w-8 rounded-full bg-cyan-500 flex items-center justify-center">
-                  <Bot className="w-4 h-4 text-white" />
+                <div className="mt-1 h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+                  <Bot className="w-4 h-4 text-[#0B0B0A]" />
                 </div>
                 <div className="bg-secondary/80 text-foreground rounded-2xl rounded-tl-sm px-4 py-3 border border-border flex gap-2 items-center">
                   <span className="text-xs text-muted-foreground">Thinking</span>
-                  <RefreshCw className="w-3 h-3 animate-spin text-cyan-400" />
+                  <RefreshCw className="w-3 h-3 animate-spin text-primary" />
                 </div>
               </div>
             )}
@@ -194,13 +194,13 @@ export function FullPageCoach() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask anything about your carbon footprintâ€¦"
-              className="flex-1 bg-secondary border-border focus-visible:ring-cyan-400 h-12 text-base"
+              className="flex-1 bg-secondary border-border focus-visible:primary h-12 text-base"
               disabled={isTyping}
             />
             <Button
               type="submit"
               size="icon"
-              className="h-12 w-12 bg-cyan-500 hover:bg-cyan-500 shrink-0 shadow-lg shadow-cyan-400/20"
+              className="h-12 w-12 bg-primary hover:bg-primary shrink-0 shadow-lg "
               disabled={!input.trim() || isTyping}
             >
               <Send className="h-5 w-5" />
@@ -211,7 +211,7 @@ export function FullPageCoach() {
               <button
                 key={prompt}
                 onClick={() => setInput(prompt)}
-                className="text-[10px] text-muted-foreground hover:text-cyan-400 transition-colors"
+                className="text-[10px] text-muted-foreground hover:text-primary transition-colors"
               >
                 {prompt}
               </button>

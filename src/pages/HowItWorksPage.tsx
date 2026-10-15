@@ -1,4 +1,4 @@
-﻿import { Navbar } from '../components/landing/Navbar';
+import { Navbar } from '../components/landing/Navbar';
 import { HowItWorks } from '../components/landing/HowItWorks';
 import { Footer } from '../components/landing/Footer';
 import { motion } from 'framer-motion';
@@ -14,7 +14,7 @@ export function HowItWorksPage() {
              animate={{ opacity: 1, y: 0 }}
              className="text-center mb-12"
            >
-             <h1 className="text-5xl font-extrabold mb-4">Carbon Reduction <span className="text-cyan-400">Science</span></h1>
+             <h1 className="text-5xl font-extrabold mb-4">Carbon Reduction <span className="text-primary">Science</span></h1>
              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                Our platform uses enterprise-grade monitoring and AI optimization to eliminate digital waste.
              </p>
@@ -31,24 +31,24 @@ export function HowItWorksPage() {
                  </p>
                  <ul className="space-y-3">
                     <li className="flex items-center gap-2 text-sm">
-                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                       <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                        No keystroke logging or screen recording
                     </li>
                     <li className="flex items-center gap-2 text-sm">
-                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                       <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                        Encrypted data transmission (AES-256)
                     </li>
                     <li className="flex items-center gap-2 text-sm">
-                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                       <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                        GDPR and CCPA compliant architecture
                     </li>
                  </ul>
               </div>
-              <div className="bg-cyan-500/5 border border-cyan-400/20 rounded-3xl p-8 aspect-square flex items-center justify-center relative overflow-hidden">
-                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-400/10 via-transparent to-transparent" />
+              <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 aspect-square flex items-center justify-center relative overflow-hidden">
+                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
                  <div className="text-center relative z-10 space-y-3">
-                    <div className="text-5xl font-black text-cyan-400 mb-2">0.71</div>
-                    <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">kg COâ‚‚ / kWh</p>
+                    <div className="text-5xl font-black text-primary mb-2">0.71</div>
+                    <p className="text-sm font-bold uppercase tracking-widest text-primary">kg COâ‚‚ / kWh</p>
                     <p className="text-xs text-muted-foreground max-w-[220px] mx-auto">
                       India CEA grid intensity factor (2023). Multiplied by PUE 1.2, this drives every CarbonIQ calculation.
                     </p>

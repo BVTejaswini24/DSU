@@ -41,8 +41,8 @@ export function Globe() {
     }
   }, []);
 
-  const TEAL_PRIMARY = 'rgba(5, 122, 85, 0.9)';
-  const TEAL_DARK = 'rgba(2, 44, 34, 0.7)';
+  const TEAL_PRIMARY = 'rgba(212, 231, 106, 0.9)';
+  const TEAL_DARK = 'rgba(90, 100, 48, 0.7)';
 
   return (
     <div className="w-full h-full relative group">
@@ -63,11 +63,11 @@ export function Globe() {
         
         // Label styling
         polygonLabel={({ properties: d }: any) => `
-          <div class="bg-[#172B4D]/90 border border-cyan-400/30 p-3 rounded-xl shadow-2xl backdrop-blur-md">
-            <p class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-1">${d.ADMIN}</p>
+          <div class="bg-[#1A1A17]/95 border border-primary/30 p-3 rounded-xl shadow-2xl backdrop-blur-md">
+            <p class="text-xs font-bold text-primary uppercase tracking-widest mb-1">${d.ADMIN}</p>
             <div class="flex items-center gap-2">
-              <div class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></div>
-              <p class="text-sm text-white font-medium">Efficiency Score: <span class="text-cyan-400">${Math.round(Math.random() * 40 + 60)}%</span></p>
+              <div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+              <p class="text-sm text-white font-medium">Efficiency Score: <span class="text-primary">${Math.round(Math.random() * 40 + 60)}%</span></p>
             </div>
             <p class="text-[10px] text-zinc-500 mt-1">Real-time Carbon Ingestion Active</p>
           </div>

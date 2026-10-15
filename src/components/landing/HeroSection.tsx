@@ -23,8 +23,8 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#A9B85A]/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10 pointer-events-none">
         <motion.div
@@ -33,17 +33,17 @@ export function HeroSection() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="flex flex-col gap-8 max-w-xl py-20 pointer-events-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 w-fit">
-            <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary w-fit">
+            <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-medium">Carbon Engine live</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
             Turn invisible{' '}
-            <span className="font-pixel text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+            <span className="font-pixel text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#A9B85A]">
               emissions
             </span>{' '}
-            into visible <span className="text-cyan-400">savings.</span>
+            into visible <span className="text-primary">savings.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -56,7 +56,7 @@ export function HeroSection() {
             <Link to="/auth">
               <Button
                 size="lg"
-                className="h-14 px-8 text-base bg-cyan-500 hover:bg-cyan-400 text-[#080D18] font-semibold shadow-[0_0_20px_rgba(72,217,245,0.4)] transition-all hover:shadow-[0_0_30px_rgba(72,217,245,0.6)]"
+                className="h-14 px-8 text-base bg-primary hover:bg-primary/85 text-[#0B0B0A] font-semibold shadow-[0_0_20px_rgba(212,231,106,0.4)] transition-all hover:shadow-[0_0_30px_rgba(212,231,106,0.6)]"
               >
                 Get started <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -74,17 +74,17 @@ export function HeroSection() {
 
           <div className="flex items-center gap-8 md:gap-12 pt-8 border-t border-border/50 w-full">
             <Stat
-              icon={<Cloud className="w-4 h-4 text-cyan-400" />}
+              icon={<Cloud className="w-4 h-4 text-primary" />}
               label="CO₂ saved"
               value={loading ? '—' : formatKg(stats?.totalCarbonSavedKg ?? 0)}
             />
             <Stat
-              icon={<IndianRupee className="w-4 h-4 text-cyan-400" />}
+              icon={<IndianRupee className="w-4 h-4 text-primary" />}
               label="Money saved"
               value={loading ? '—' : formatRupees(stats?.totalRupeesSaved ?? 0)}
             />
             <Stat
-              icon={<Zap className="w-4 h-4 text-cyan-400" />}
+              icon={<Zap className="w-4 h-4 text-primary" />}
               label="Members"
               value={loading ? '—' : `${stats?.totalUsers ?? 0}`}
             />

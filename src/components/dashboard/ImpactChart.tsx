@@ -1,4 +1,4 @@
-﻿import {
+import {
   Area,
   AreaChart,
   CartesianGrid,
@@ -45,7 +45,7 @@ export function ImpactChart() {
               onClick={() => setPeriod(p.value)}
               className={`px-3 py-1 text-xs rounded-md transition-all font-medium ${
                 period === p.value
-                  ? 'bg-cyan-500 text-[#080D18] font-semibold'
+                  ? 'bg-primary text-[#0B0B0A] font-semibold'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -57,12 +57,12 @@ export function ImpactChart() {
       <CardContent>
         {loading && chartData.length === 0 ? (
           <div className="h-[300px] flex items-center justify-center">
-            <Loader2 className="w-8 h-8 animate-spin text-cyan-400" />
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
         ) : !hasAnyData ? (
           <div className="h-[300px] flex flex-col items-center justify-center gap-3 text-center px-6">
-            <div className="w-14 h-14 rounded-full bg-cyan-400/10 flex items-center justify-center">
-              <Sprout className="w-7 h-7 text-cyan-400" />
+            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+              <Sprout className="w-7 h-7 text-primary" />
             </div>
             <p className="text-sm font-medium">No activity in this period yet.</p>
             <p className="text-xs text-muted-foreground max-w-[280px]">
@@ -83,8 +83,8 @@ export function ImpactChart() {
                     <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="colorSaved" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#48D9F5" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#48D9F5" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#D4E76A" stopOpacity={0.4} />
+                    <stop offset="95%" stopColor="#D4E76A" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid
@@ -118,13 +118,13 @@ export function ImpactChart() {
                   tickLine={false}
                   axisLine={false}
                   tickFormatter={(v) => `${v}kg`}
-                  tick={{ fill: '#48D9F5' }}
+                  tick={{ fill: '#D4E76A' }}
                 />
                 <Tooltip
-                  cursor={{ stroke: 'rgba(72,217,245,0.1)', strokeWidth: 2 }}
+                  cursor={{ stroke: 'rgba(212,231,106,0.15)', strokeWidth: 2 }}
                   contentStyle={{
-                    backgroundColor: 'rgba(23,43,77,0.97)',
-                    borderColor: 'rgba(72,217,245,0.2)',
+                    backgroundColor: 'rgba(26,26,23,0.97)',
+                    borderColor: 'rgba(212,231,106,0.2)',
                     borderRadius: '12px',
                     backdropFilter: 'blur(8px)',
                     boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
@@ -149,7 +149,7 @@ export function ImpactChart() {
                   type="monotone"
                   dataKey="saved"
                   name="COâ‚‚ Saved"
-                  stroke="#48D9F5"
+                  stroke="#D4E76A"
                   strokeWidth={3}
                   fillOpacity={1}
                   fill="url(#colorSaved)"

@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Check, X, Bot, Loader2, RefreshCw, Monitor, Zap, Leaf, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
@@ -18,11 +18,11 @@ import { useDashboard } from '../../services/DashboardContext';
 const categoryColor = (category: string) => {
   switch (category) {
     case 'Browser':
-      return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
+      return 'bg-[#A9B85A]/10 text-[#A9B85A] border-[#A9B85A]/20';
     case 'Hardware':
       return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
     case 'Lifestyle':
-      return 'bg-cyan-400/10 text-cyan-400 border-cyan-400/20';
+      return 'bg-primary/10 text-primary border-primary/20';
     default:
       return 'bg-gray-500/10 text-gray-400 border-gray-500/20';
   }
@@ -113,7 +113,7 @@ export function ActionCenter() {
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
           <CardTitle className="flex items-center gap-2">
-            <Bot className="w-5 h-5 text-cyan-400" />
+            <Bot className="w-5 h-5 text-primary" />
             AI Coach Suggestions
           </CardTitle>
           <CardDescription>
@@ -123,7 +123,7 @@ export function ActionCenter() {
         <div className="flex items-center gap-2">
           <Badge
             variant="outline"
-            className="bg-cyan-400/10 text-cyan-400 border-cyan-400/20"
+            className="bg-primary/10 text-primary border-primary/20"
           >
             {suggestions.length} pending
           </Badge>
@@ -142,7 +142,7 @@ export function ActionCenter() {
       <CardContent>
         {loading ? (
           <div className="flex flex-col items-center justify-center py-8 gap-3">
-            <Loader2 className="w-6 h-6 animate-spin text-cyan-400" />
+            <Loader2 className="w-6 h-6 animate-spin text-primary" />
             <p className="text-xs text-muted-foreground">Loading suggestionsâ€¦</p>
           </div>
         ) : aiUnavailable ? (
@@ -194,7 +194,7 @@ export function ActionCenter() {
                         {suggestion.category}
                       </Badge>
                       <div className="text-right">
-                        <p className="text-xs font-medium text-cyan-400">
+                        <p className="text-xs font-medium text-primary">
                           Save â‚¹{suggestion.potentialSavingsInr.toFixed(0)}
                         </p>
                         <p className="text-xs text-muted-foreground">
@@ -206,7 +206,7 @@ export function ActionCenter() {
                     <div className="flex gap-2">
                       <Button
                         size="sm"
-                        className="w-full bg-cyan-500 hover:bg-cyan-600"
+                        className="w-full bg-primary hover:bg-primary/80"
                         onClick={() => handleAction(suggestion.id, 'accept')}
                       >
                         <Check className="w-4 h-4 mr-1" /> Accept
