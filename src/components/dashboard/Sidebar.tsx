@@ -64,11 +64,11 @@ export function Sidebar({ user }: SidebarProps) {
     <aside className="w-64 border-r border-border bg-card flex flex-col h-screen sticky top-0">
       <div className="p-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-            <Leaf className="w-4 h-4 text-emerald-500" />
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 border border-primary/20">
+            <Leaf className="w-4 h-4 text-primary" />
           </div>
           <span className="text-lg font-bold tracking-tight text-foreground">
-            Carbon<span className="text-emerald-500">IQ</span>
+            Carbon<span className="text-primary">IQ</span>
           </span>
         </Link>
         <button
@@ -95,11 +95,11 @@ export function Sidebar({ user }: SidebarProps) {
                 to={item.path}
                 className={`flex items-center gap-3 px-3 py-2 rounded-md transition-colors ${
                   isActive
-                    ? 'bg-emerald-500/10 text-emerald-400 font-medium'
+                    ? 'bg-primary/10 text-primary font-medium'
                     : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
-                <item.icon className={`w-5 h-5 ${isActive ? 'text-emerald-400' : ''}`} />
+                <item.icon className={`w-5 h-5 ${isActive ? 'text-primary' : ''}`} />
                 {item.label}
               </Link>
             );
@@ -115,7 +115,7 @@ export function Sidebar({ user }: SidebarProps) {
           </Avatar>
           <div className="flex flex-col min-w-0">
             <span className="text-sm font-medium text-foreground truncate">
-              {user?.name || 'Loading…'}
+              {user?.name || 'Loadingâ€¦'}
             </span>
             <span className="text-xs text-muted-foreground">
               Score: {user?.ecoScore ?? 0}
@@ -133,3 +133,5 @@ export function Sidebar({ user }: SidebarProps) {
     </aside>
   );
 }
+
+

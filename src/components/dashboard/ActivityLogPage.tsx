@@ -29,11 +29,11 @@ const categoryIcon = (category: string) => {
 const categoryColor = (category: string) => {
   switch (category) {
     case 'Browser':
-      return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
+      return 'bg-[#A9B85A]/10 text-[#A9B85A] border-[#A9B85A]/20';
     case 'Hardware':
       return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
     case 'Lifestyle':
-      return 'bg-green-500/10 text-green-400 border-green-500/20';
+      return 'bg-primary/10 text-primary border-primary/20';
     default:
       return 'bg-gray-500/10 text-gray-400 border-gray-500/20';
   }
@@ -96,9 +96,9 @@ export function ActivityLogPage() {
 
   const categoryClass = useMemo(
     () => ({
-      Browser: 'bg-blue-500/10 text-blue-300 border-blue-500/20',
+      Browser: 'bg-[#A9B85A]/10 text-[#A9B85A]/90 border-[#A9B85A]/20',
       Hardware: 'bg-orange-500/10 text-orange-300 border-orange-500/20',
-      Lifestyle: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20'
+      Lifestyle: 'bg-primary/10 text-primary/80 border-primary/20'
     }),
     []
   );
@@ -127,7 +127,7 @@ export function ActivityLogPage() {
       <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <CardTitle className="flex items-center gap-2">
-            <Activity className="w-5 h-5 text-emerald-400" />
+            <Activity className="w-5 h-5 text-primary" />
             Activity Log
           </CardTitle>
           <CardDescription>
@@ -146,11 +146,11 @@ export function ActivityLogPage() {
         </Button>
       </CardHeader>
       <CardContent>
-        <div className="mb-6 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
+        <div className="mb-6 rounded-xl border border-primary/20 bg-primary/5 p-4">
           <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Lightbulb className="h-4 w-4 text-emerald-400" />
-              <p className="text-sm font-semibold text-emerald-200">AI Daily Recommendations</p>
+              <Lightbulb className="h-4 w-4 text-primary" />
+              <p className="text-sm font-semibold text-primary/80">AI Daily Recommendations</p>
             </div>
             <Button
               size="sm"
@@ -189,8 +189,8 @@ export function ActivityLogPage() {
                     >
                       {tip.category}
                     </Badge>
-                    <span className="text-xs text-emerald-300">
-                      Save {tip.potentialSavingsKg.toFixed(2)} kg CO2 | ₹
+                    <span className="text-xs text-primary/80">
+                      Save {tip.potentialSavingsKg.toFixed(2)} kg CO2 | â‚¹
                       {tip.potentialSavingsInr.toFixed(0)}
                     </span>
                   </div>
@@ -206,7 +206,7 @@ export function ActivityLogPage() {
                     </Button>
                     <Button
                       size="sm"
-                      className="bg-emerald-600 hover:bg-emerald-500 text-white"
+                      className="bg-primary hover:bg-primary text-[#0B0B0A]"
                       disabled={actingTipId === tip.id}
                       onClick={() => actOnTip(tip.id, 'accept')}
                     >
@@ -220,14 +220,14 @@ export function ActivityLogPage() {
         </div>
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-6 h-6 animate-spin text-emerald-500" />
+            <Loader2 className="w-6 h-6 animate-spin text-primary" />
           </div>
         ) : entries.length === 0 ? (
           <div className="text-center py-16 space-y-2">
             <p className="text-sm font-medium">No activity yet.</p>
             <p className="text-xs text-muted-foreground max-w-md mx-auto">
               Apply a habit from the simulator, scan a transit ticket or accept a coach suggestion.
-              Each action you take will appear here with its real CO₂ and ₹ impact.
+              Each action you take will appear here with its real COâ‚‚ and â‚¹ impact.
             </p>
           </div>
         ) : (
@@ -252,14 +252,14 @@ export function ActivityLogPage() {
                   <div className="text-left sm:text-right shrink-0">
                     <p
                       className={`text-sm font-semibold ${
-                        isPositive ? 'text-emerald-400' : 'text-red-400'
+                        isPositive ? 'text-primary' : 'text-red-400'
                       }`}
                     >
-                      {isPositive ? '−' : '+'}
-                      {Math.abs(entry.carbonImpact).toFixed(3)} kg CO₂
+                      {isPositive ? 'âˆ’' : '+'}
+                      {Math.abs(entry.carbonImpact).toFixed(3)} kg COâ‚‚
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {isPositive ? '−' : '+'}₹{Math.abs(entry.costImpact).toFixed(2)}
+                      {isPositive ? 'âˆ’' : '+'}â‚¹{Math.abs(entry.costImpact).toFixed(2)}
                     </p>
                   </div>
                 </div>
@@ -271,3 +271,5 @@ export function ActivityLogPage() {
     </Card>
   );
 }
+
+

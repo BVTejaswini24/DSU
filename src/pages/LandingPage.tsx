@@ -15,7 +15,7 @@ export function LandingPage() {
       // We'll keep dark mode for the whole app as requested
     };}, []);
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-emerald-500/30 overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
       <Navbar />
       <main>
         <HeroSection />

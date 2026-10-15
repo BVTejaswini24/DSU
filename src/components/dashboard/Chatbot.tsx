@@ -24,7 +24,7 @@ export function Chatbot() {
     {
       role: 'assistant',
       content:
-        "Hi — I'm your CarbonIQ Eco-Coach. I look at your real activity and help you cut footprint and cost. What do you want to optimise?"
+"Hi — I'm your CarbonIQ Eco-Coach. I look at your real activity and help you cut footprint and cost. What do you want to optimise?"
     }
   ]);
   const [input, setInput] = useState('');
@@ -75,10 +75,10 @@ export function Chatbot() {
           >
             <Button
               size="icon"
-              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-emerald-600 hover:bg-emerald-700 shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-primary hover:bg-primary/80 "
               onClick={() => setIsOpen(true)}
             >
-              <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+              <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-[#0B0B0A]" />
             </Button>
           </motion.div>
         )}
@@ -92,18 +92,18 @@ export function Chatbot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             className="fixed bottom-20 right-3 left-3 h-[68vh] sm:bottom-6 sm:right-6 sm:left-auto sm:w-96 sm:h-[520px] bg-card border border-border rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden"
           >
-            <div className="bg-emerald-900/50 border-b border-emerald-500/20 p-4 flex items-center justify-between">
+            <div className="bg-[#141412]/60 border-b border-primary/20 p-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="bg-emerald-500 p-1.5 rounded-lg">
-                  <Bot className="w-5 h-5 text-white" />
+                <div className="bg-primary p-1.5 rounded-lg">
+                  <Bot className="w-5 h-5 text-[#0B0B0A]" />
                 </div>
                 <div>
                   <h3 className="font-bold text-sm text-foreground flex items-center gap-1">
                     Eco-Coach
                     <Sparkles className="w-3 h-3 text-yellow-400" />
                   </h3>
-                  <p className="text-[10px] text-emerald-400 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <p className="text-[10px] text-primary flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full primary animate-pulse" />
                     Powered by your real data
                   </p>
                 </div>
@@ -128,7 +128,7 @@ export function Chatbot() {
                     <div
                       className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm ${
                         msg.role === 'user'
-                          ? 'bg-emerald-600 text-white rounded-tr-sm'
+                          ? 'bg-primary text-[#0B0B0A] rounded-tr-sm'
                           : 'bg-secondary text-foreground rounded-tl-sm border border-border'
                       }`}
                     >
@@ -140,13 +140,13 @@ export function Chatbot() {
                   <div className="flex justify-start">
                     <div className="bg-secondary text-foreground rounded-2xl rounded-tl-sm px-4 py-3 border border-border flex gap-1 items-center">
                       <span className="text-xs text-muted-foreground mr-1">Thinking</span>
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" />
+                      <span className="w-1.5 h-1.5 primary rounded-full animate-bounce" />
                       <span
-                        className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce"
+                        className="w-1.5 h-1.5 primary rounded-full animate-bounce"
                         style={{ animationDelay: '0.2s' }}
                       />
                       <span
-                        className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce"
+                        className="w-1.5 h-1.5 primary rounded-full animate-bounce"
                         style={{ animationDelay: '0.4s' }}
                       />
                     </div>
@@ -161,7 +161,7 @@ export function Chatbot() {
                   <button
                     key={prompt}
                     onClick={() => setInput(prompt)}
-                    className="text-[10px] bg-secondary hover:bg-emerald-500/10 hover:border-emerald-500/30 border border-border px-2 py-1 rounded-full text-muted-foreground hover:text-emerald-400 transition-all"
+                    className="text-[10px] bg-secondary hover:bg-primary/10 hover:border-primary/30 border border-border px-2 py-1 rounded-full text-muted-foreground hover:text-primary transition-all"
                   >
                     {prompt}
                   </button>
@@ -174,14 +174,14 @@ export function Chatbot() {
                 <Input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask the Coach…"
-                  className="bg-secondary border-border focus-visible:ring-emerald-500"
+                  placeholder="Ask the Coachâ€¦"
+                  className="bg-secondary border-border focus-visible:primary"
                   disabled={isTyping}
                 />
                 <Button
                   type="submit"
                   size="icon"
-                  className="bg-emerald-600 hover:bg-emerald-700 shrink-0"
+                  className="bg-primary hover:bg-primary/80 shrink-0"
                   disabled={!input.trim() || isTyping}
                 >
                   <Send className="h-4 w-4" />
@@ -194,3 +194,4 @@ export function Chatbot() {
     </>
   );
 }
+

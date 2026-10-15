@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { 
   Scan, 
   Cpu, 
@@ -10,9 +10,9 @@ import {
 const steps = [
   {
     title: "1. Real-time Ingestion",
-    description: "Our lightweight agents monitor your digital footprint—from browser tabs to hardware energy draw—without ever compromising privacy.",
+    description: "Our lightweight agents monitor your digital footprintâ€”from browser tabs to hardware energy drawâ€”without ever compromising privacy.",
     icon: Scan,
-    color: "emerald"
+    color: "cyan"
   },
   {
     title: "2. AI Digital Twin",
@@ -24,7 +24,7 @@ const steps = [
     title: "3. AI-Driven Coaching",
     description: "Our Llama-3 powered Eco-Coach provides aggressive, contextual nudges to help employees reduce waste in the moment.",
     icon: Bot,
-    color: "emerald"
+    color: "cyan"
   },
   {
     title: "4. Global Impact",
@@ -39,8 +39,8 @@ export function HowItWorks() {
     <section id="how-it-works" className="py-24 bg-background relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#A9B85A]/5 rounded-full blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -50,7 +50,7 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl font-bold mb-4"
           >
-            How <span className="text-emerald-500">CarbonIQ</span> Works
+            How <span className="text-primary">CarbonIQ</span> Works
           </motion.h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             From local data ingestion to global ESG compliance, we automate every step of your digital sustainability journey.
@@ -91,13 +91,13 @@ export function HowItWorks() {
                 y: -10,
                 transition: { type: "spring", stiffness: 400, damping: 10 }
               }}
-              className="relative group p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-colors"
+              className="relative group p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-colors"
             >
               <div className={`w-14 h-14 rounded-2xl bg-${step.color}-500/10 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300 relative`}>
                 <div className={`absolute inset-0 bg-${step.color}-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity`} />
                 <step.icon className={`w-7 h-7 text-${step.color}-500 relative z-10`} />
               </div>
-              <h3 className="text-xl font-bold mb-3 group-hover:text-emerald-500 transition-colors">{step.title}</h3>
+              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {step.description}
               </p>
@@ -106,7 +106,7 @@ export function HowItWorks() {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 + index * 0.15 }}
-                  className="hidden lg:block absolute top-12 -right-4 z-10 text-emerald-500/30"
+                  className="hidden lg:block absolute top-12 -right-4 z-10 text-primary/30"
                 >
                   <ArrowRight className="w-6 h-6" />
                 </motion.div>
@@ -118,3 +118,4 @@ export function HowItWorks() {
     </section>
   );
 }
+

@@ -12,7 +12,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
     data-slot="avatar"
     data-size={size}
     className={cn(
-      "relative inline-flex shrink-0 overflow-hidden rounded-full select-none",
+"relative inline-flex shrink-0 overflow-hidden rounded-full select-none",
       size === "sm" ? "size-6" : size === "lg" ? "size-10" : "size-8",
       className
     )}

@@ -80,7 +80,7 @@ const SheetContent = React.forwardRef<HTMLDivElement, SheetContentProps>(
           data-slot="sheet-content"
           data-side={side}
           className={cn(
-            "fixed z-50 flex flex-col gap-4 bg-background text-sm shadow-lg",
+"fixed z-50 flex flex-col gap-4 bg-background text-sm shadow-lg",
             sideStyles[side],
             className
           )}

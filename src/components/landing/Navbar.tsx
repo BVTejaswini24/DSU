@@ -19,10 +19,10 @@ export function Navbar() {
       
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors">
-            <Leaf className="w-5 h-5 text-emerald-500" />
+          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors">
+            <Leaf className="w-5 h-5 text-primary" />
             <motion.div
-              className="absolute inset-0 rounded-xl border border-emerald-500/50"
+              className="absolute inset-0 rounded-xl border border-primary/50"
               animate={{
                 scale: [1, 1.1, 1],
                 opacity: [0.5, 0, 0.5]
@@ -34,7 +34,7 @@ export function Navbar() {
             
           </div>
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Carbon<span className="text-emerald-500">IQ</span>
+            Carbon<span className="text-primary">IQ</span>
           </span>
         </Link>
 
@@ -42,18 +42,18 @@ export function Navbar() {
         <nav className="hidden md:flex items-center gap-8">
           <a
             href="#features"
-            className="text-sm font-medium text-muted-foreground hover:text-emerald-400 transition-colors">
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             
             Features
           </a>
           <Link
             to="/how-it-works"
-            className="text-sm font-medium text-muted-foreground hover:text-emerald-400 transition-colors">
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             How it Works
           </Link>
           <Link
             to="/enterprise"
-            className="text-sm font-medium text-muted-foreground hover:text-emerald-400 transition-colors">
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Enterprise
           </Link>
           <div className="flex items-center gap-4 ml-4">
@@ -66,7 +66,7 @@ export function Navbar() {
               </Button>
             </Link>
             <Link to="/auth">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+              <Button className="bg-primary hover:bg-primary/85 text-[#0B0B0A] font-semibold shadow-[0_0_15px_rgba(212,231,106,0.3)]">
                 Get started
               </Button>
             </Link>
@@ -129,7 +129,7 @@ export function Navbar() {
                   </Button>
                 </Link>
                 <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                  <Button className="w-full bg-primary hover:bg-primary/85 text-[#0B0B0A] font-semibold">
                     Get started
                   </Button>
                 </Link>

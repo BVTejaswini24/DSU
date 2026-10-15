@@ -67,7 +67,7 @@ const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
         ref={ref}
         data-slot="tooltip-content"
         className={cn(
-          "absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 inline-flex w-fit max-w-xs items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs text-background",
+"absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 inline-flex w-fit max-w-xs items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs text-background",
           className
         )}
         {...props} />);

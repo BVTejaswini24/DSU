@@ -27,12 +27,12 @@ export function EcoScoreGauge() {
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center pb-8 pt-2">
         <div className="relative w-40 h-40 flex items-center justify-center">
-          <div className="absolute inset-0 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all duration-700" />
-          <svg className="w-full h-full transform -rotate-90 filter drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
+          <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
+          <svg className="w-full h-full transform -rotate-90 filter ">
             <defs>
               <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#10b981" />
-                <stop offset="100%" stopColor="#3b82f6" />
+                <stop offset="0%" stopColor="#D4E76A" />
+                <stop offset="100%" stopColor="#A9B85A" />
               </linearGradient>
             </defs>
             <circle
