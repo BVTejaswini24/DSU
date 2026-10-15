@@ -6,7 +6,6 @@ import {
   LayoutDashboard,
   Activity,
   Sliders,
-  Trophy,
   Bot,
   MapPin,
   Settings
@@ -16,7 +15,6 @@ import { toast } from 'sonner';
 import { Sidebar } from '../components/dashboard/Sidebar';
 import { Overview } from '../components/dashboard/Overview';
 import { WhatIfSimulator } from '../components/dashboard/WhatIfSimulator';
-import { Leaderboard } from '../components/dashboard/Leaderboard';
 import { Chatbot } from '../components/dashboard/Chatbot';
 import { FullPageCoach } from '../components/dashboard/FullPageCoach';
 import { SettingsView } from '../components/dashboard/SettingsView';
@@ -30,7 +28,6 @@ const mobileNavItems = [
   { icon: LayoutDashboard, label: 'Home', path: '/dashboard' },
   { icon: Activity, label: 'Activity', path: '/dashboard/activity' },
   { icon: Sliders, label: 'Sim', path: '/dashboard/simulator' },
-  { icon: Trophy, label: 'Leaders', path: '/dashboard/leaderboard' },
   { icon: Bot, label: 'Coach', path: '/dashboard/coach' },
   { icon: MapPin, label: 'Scan', path: '/dashboard/scan' },
   { icon: Settings, label: 'Settings', path: '/dashboard/settings' }
@@ -54,7 +51,7 @@ function ExportButton() {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `CarbonTwin_ESG_Report_${new Date().toISOString().split('T')[0]}.csv`;
+      a.download = `CarbonIQ_ESG_Report_${new Date().toISOString().split('T')[0]}.csv`;
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
@@ -134,7 +131,7 @@ function DashboardShell() {
           <MobileDashboardNav />
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">CarbonTwin</h1>
+              <h1 className="text-3xl font-bold tracking-tight">CarbonIQ</h1>
               <p className="text-sm text-muted-foreground mt-1">
                 {user?.name
                   ? `Welcome back, ${user.name.split(' ')[0]}. Your metrics are calculated from real activity logs.`
@@ -177,7 +174,6 @@ function DashboardShell() {
             <Route index element={<Overview />} />
             <Route path="activity" element={<ActivityLogPage />} />
             <Route path="simulator" element={<WhatIfSimulator />} />
-            <Route path="leaderboard" element={<Leaderboard />} />
             <Route path="coach" element={<FullPageCoach />} />
             <Route path="scan" element={<CommuteScanner />} />
             <Route path="settings" element={<SettingsView />} />

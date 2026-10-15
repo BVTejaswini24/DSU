@@ -57,7 +57,7 @@ export function AuthPage() {
             </div>
             <div>
               <h1 className="text-2xl font-bold tracking-tight text-white">
-                Carbon<span className="text-cyan-400">Twin</span>
+                Carbon<span className="text-cyan-400">IQ</span>
               </h1>
               <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
                 Digital sustainability

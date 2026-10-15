@@ -124,7 +124,7 @@ export function FullPageCoach() {
               </h2>
               <p className="text-[10px] text-cyan-400 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                Llama 3.3 Â· grounded in your real activity
+                Groq AI · grounded in your real activity
               </p>
             </div>
           </div>

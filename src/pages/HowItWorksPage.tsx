@@ -50,7 +50,7 @@ export function HowItWorksPage() {
                     <div className="text-5xl font-black text-cyan-400 mb-2">0.71</div>
                     <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">kg COâ‚‚ / kWh</p>
                     <p className="text-xs text-muted-foreground max-w-[220px] mx-auto">
-                      India CEA grid intensity factor (2023). Multiplied by PUE 1.2, this drives every CarbonTwin calculation.
+                      India CEA grid intensity factor (2023). Multiplied by PUE 1.2, this drives every CarbonIQ calculation.
                     </p>
                  </div>
               </div>

@@ -21,7 +21,7 @@ export function CTASection() {
             See your real footprint. Then shrink it.
           </h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Sign up free, log a few habits, and watch CarbonTwin turn your activity into a real
+            Sign up free, log a few habits, and watch CarbonIQ turn your activity into a real
             Eco-Score backed by India CEA grid data and an AI coach.
           </p>
 

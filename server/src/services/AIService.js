@@ -9,9 +9,9 @@
  * clear error so the caller can render an honest "AI not configured" state.
  */
 
-// llama-3.3-70b-versatile was retired by Groq on 2026-08-16 for free/developer tier keys.
-// Replacement: openai/gpt-oss-120b — same free tier, 128K context, equivalent quality.
-const GROQ_MODEL = 'openai/gpt-oss-120b';
+// Groq decommissions models over time (llama-3.3-70b-versatile now returns
+// 404 model_not_found). Override with GROQ_MODEL in server/.env without a code change.
+const GROQ_MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
 
 let groqClient = null;
 const getGroq = () => {
@@ -27,14 +27,27 @@ const getGroq = () => {
 
 const chat = async (messages, options = {}) => {
   const groq = getGroq();
-  const completion = await groq.chat.completions.create({
-    model: GROQ_MODEL,
-    messages,
-    temperature: options.temperature ?? 0.7,
-    max_tokens: options.max_tokens ?? 512,
-    stream: false
-  });
-  return completion.choices?.[0]?.message?.content || '';
+  try {
+    const completion = await groq.chat.completions.create({
+      model: GROQ_MODEL,
+      messages,
+      temperature: options.temperature ?? 0.7,
+      max_tokens: options.max_tokens ?? 512,
+      stream: false
+    });
+    const reply = completion.choices?.[0]?.message?.content || '';
+    if (!reply) {
+      throw new Error(`Groq returned an empty completion (model: ${GROQ_MODEL})`);
+    }
+    return reply;
+  } catch (err) {
+    // Groq errors carry an HTTP status and machine-readable code (e.g.
+    // model_not_found, invalid_api_key) but never the API key itself.
+    const code = err?.error?.code || err?.code || 'unknown';
+    const status = err?.status || 'n/a';
+    const detail = err?.error?.message || err?.message || 'unknown error';
+    throw new Error(`Groq request failed (model: ${GROQ_MODEL}, status: ${status}, code: ${code}): ${detail}`);
+  }
 };
 
 /**
@@ -51,7 +64,7 @@ const generateDailySuggestions = async (user, activityLogs) => {
     )
     .join('\n');
 
-  const systemPrompt = `You are CarbonTwin's Eco-Coach AI. You help users reduce their digital and lifestyle carbon footprint.
+  const systemPrompt = `You are CarbonIQ's Eco-Coach AI. You help users reduce their digital and lifestyle carbon footprint.
 Tone: direct, concrete, practical. No moralizing. Always tie carbon to ₹ savings (Indian Rupees).
 Never invent activity that the user did not actually log.`;
 
@@ -73,7 +86,7 @@ Format strictly:
       { role: 'system', content: systemPrompt },
       { role: 'user', content: userPrompt }
     ],
-    { temperature: 0.6, max_tokens: 600 }
+    { temperature: 0.6, max_tokens: 1500 }
   );
 
   const match = response.match(/\[[\s\S]*\]/);
@@ -95,7 +108,7 @@ const ecoCoachChat = async (userMessage, dashboardStats, history = []) => {
     .map((a) => `- ${a.category}: ${a.action} (${a.carbonImpact} kg)`)
     .join('\n');
 
-  const systemPrompt = `You are CarbonTwin's Eco-Coach. Tone: direct, practical, supportive. Always frame carbon in ₹ for Indian users. Max 3 sentences.
+  const systemPrompt = `You are CarbonIQ's Eco-Coach. Tone: direct, practical, supportive. Always frame carbon in ₹ for Indian users. Max 3 sentences.
 
 User context:
 - Name: ${dashboardStats.name || 'the user'}
@@ -117,7 +130,9 @@ Use this real data when answering. Never invent numbers. End with one concrete n
     { role: 'user', content: userMessage }
   ];
 
-  return chat(messages, { temperature: 0.75, max_tokens: 256 });
+  // Reasoning models (gpt-oss) spend part of max_tokens on hidden reasoning;
+  // 256 was too small and produced empty completions on longer questions.
+  return chat(messages, { temperature: 0.75, max_tokens: 1024 });
 };
 
 const sendSlackCongrats = async (userName, ecoScore) => {
@@ -126,7 +141,7 @@ const sendSlackCongrats = async (userName, ecoScore) => {
   try {
     const axios = require('axios');
     await axios.post(webhookUrl, {
-      text: `🌱 *${userName}* just hit an Eco-Score of *${ecoScore}/100* on CarbonTwin.`
+      text: `🌱 *${userName}* just hit an Eco-Score of *${ecoScore}/100* on CarbonIQ.`
     });
   } catch (err) {
     console.warn('[AIService] Slack notification failed:', err.message);

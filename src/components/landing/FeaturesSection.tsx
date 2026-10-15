@@ -25,7 +25,7 @@ const features = [
 {
   title: 'Gamified Eco-Scores',
   description:
-  'A live leaderboard and streaks turn small daily habits into a high-score game. Earn Eco-Points and trade them with other users.',
+  'Streaks turn small daily habits into a high-score game. Earn Eco-Points for every real action you log.',
   icon: <Trophy className="w-6 h-6 text-cyan-400" />,
   delay: 0.3
 },

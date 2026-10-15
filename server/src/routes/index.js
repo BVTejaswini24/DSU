@@ -23,7 +23,6 @@ const {
 } = require('../controllers/ingestController');
 const {
   getMetrics,
-  getLeaderboard,
   getActivity
 } = require('../controllers/dashboardController');
 const { whatIf } = require('../controllers/simulatorController');
@@ -34,7 +33,6 @@ const {
   generateSuggestions
 } = require('../controllers/suggestionController');
 const { exportESG } = require('../controllers/exportController');
-const { tradePoints } = require('../controllers/tradeController');
 const { scanTicket } = require('../controllers/scanController');
 const { getGlobalStats } = require('../controllers/statsController');
 
@@ -49,7 +47,7 @@ const DB_STATES = { 0: 'disconnected', 1: 'connected', 2: 'connecting', 3: 'disc
 router.get('/health', (req, res) => {
   res.json({
     status: 'ok',
-    service: 'CarbonTwin API',
+    service: 'CarbonIQ API',
     db: DB_STATES[mongoose.connection.readyState] || 'unknown',
     timestamp: new Date().toISOString()
   });
@@ -66,7 +64,6 @@ router.delete('/auth/account', authMiddleware, deleteAccount);
 
 // ---- Dashboard ----
 router.get('/dashboard/metrics', authMiddleware, getMetrics);
-router.get('/dashboard/leaderboard', authMiddleware, getLeaderboard);
 router.get('/dashboard/activity', authMiddleware, getActivity);
 
 // ---- Ingestion ----
@@ -93,8 +90,5 @@ router.post('/suggestions/generate', authMiddleware, generateSuggestions);
 
 // ---- ESG ----
 router.get('/export/esg', authMiddleware, exportESG);
-
-// ---- P2P trading ----
-router.post('/trade/points', authMiddleware, tradePoints);
 
 module.exports = router;

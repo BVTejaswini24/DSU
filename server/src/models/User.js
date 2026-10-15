@@ -59,7 +59,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
-    // P2P trading
+    // Earned from real eco-positive actions (scanning, ingestion, suggestions)
     ecoPoints: {
       type: Number,
       default: 100

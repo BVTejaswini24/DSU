@@ -56,7 +56,7 @@ app.use('/api', routes);
 
 app.get('/', (req, res) => {
   res.json({
-    name: 'CarbonTwin API',
+    name: 'CarbonIQ API',
     version: '1.0.0',
     status: 'running',
     docs: '/api/health'

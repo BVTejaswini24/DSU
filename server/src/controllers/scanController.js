@@ -113,7 +113,6 @@ const scanTicket = async (req, res) => {
       totalRupeesSaved: user.totalRupeesSaved,
       ecoPoints: user.ecoPoints
     });
-    await del('leaderboard:global');
     await del('stats:global');
 
     res.json({

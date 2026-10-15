@@ -24,7 +24,7 @@ export function Chatbot() {
     {
       role: 'assistant',
       content:
-        "Hi â€” I'm your CarbonTwin Eco-Coach. I look at your real activity and help you cut footprint and cost. What do you want to optimise?"
+        "Hi — I'm your CarbonIQ Eco-Coach. I look at your real activity and help you cut footprint and cost. What do you want to optimise?"
     }
   ]);
   const [input, setInput] = useState('');
