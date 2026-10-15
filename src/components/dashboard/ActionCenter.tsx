@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Check, X, Bot, Loader2, RefreshCw, Monitor, Zap, Leaf, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
@@ -22,7 +22,7 @@ const categoryColor = (category: string) => {
     case 'Hardware':
       return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
     case 'Lifestyle':
-      return 'bg-green-500/10 text-green-400 border-green-500/20';
+      return 'bg-cyan-400/10 text-cyan-400 border-cyan-400/20';
     default:
       return 'bg-gray-500/10 text-gray-400 border-gray-500/20';
   }
@@ -113,7 +113,7 @@ export function ActionCenter() {
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
           <CardTitle className="flex items-center gap-2">
-            <Bot className="w-5 h-5 text-emerald-400" />
+            <Bot className="w-5 h-5 text-cyan-400" />
             AI Coach Suggestions
           </CardTitle>
           <CardDescription>
@@ -123,7 +123,7 @@ export function ActionCenter() {
         <div className="flex items-center gap-2">
           <Badge
             variant="outline"
-            className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+            className="bg-cyan-400/10 text-cyan-400 border-cyan-400/20"
           >
             {suggestions.length} pending
           </Badge>
@@ -142,8 +142,8 @@ export function ActionCenter() {
       <CardContent>
         {loading ? (
           <div className="flex flex-col items-center justify-center py-8 gap-3">
-            <Loader2 className="w-6 h-6 animate-spin text-emerald-500" />
-            <p className="text-xs text-muted-foreground">Loading suggestions…</p>
+            <Loader2 className="w-6 h-6 animate-spin text-cyan-400" />
+            <p className="text-xs text-muted-foreground">Loading suggestionsâ€¦</p>
           </div>
         ) : aiUnavailable ? (
           <div className="text-center py-8 space-y-2">
@@ -194,11 +194,11 @@ export function ActionCenter() {
                         {suggestion.category}
                       </Badge>
                       <div className="text-right">
-                        <p className="text-xs font-medium text-emerald-400">
-                          Save ₹{suggestion.potentialSavingsInr.toFixed(0)}
+                        <p className="text-xs font-medium text-cyan-400">
+                          Save â‚¹{suggestion.potentialSavingsInr.toFixed(0)}
                         </p>
                         <p className="text-xs text-muted-foreground">
-                          {suggestion.potentialSavingsKg.toFixed(2)} kg CO₂
+                          {suggestion.potentialSavingsKg.toFixed(2)} kg COâ‚‚
                         </p>
                       </div>
                     </div>
@@ -206,7 +206,7 @@ export function ActionCenter() {
                     <div className="flex gap-2">
                       <Button
                         size="sm"
-                        className="w-full bg-emerald-600 hover:bg-emerald-700"
+                        className="w-full bg-cyan-500 hover:bg-cyan-600"
                         onClick={() => handleAction(suggestion.id, 'accept')}
                       >
                         <Check className="w-4 h-4 mr-1" /> Accept
@@ -230,3 +230,5 @@ export function ActionCenter() {
     </Card>
   );
 }
+
+

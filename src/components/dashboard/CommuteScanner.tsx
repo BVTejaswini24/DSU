@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Upload,
@@ -113,7 +113,7 @@ export function CommuteScanner() {
       <div>
         <h2 className="text-2xl font-bold tracking-tight">Smart Commute Scanner</h2>
         <p className="text-muted-foreground text-sm">
-          Upload a transit ticket. We extract the route with vision AI, compute CO₂ saved vs.
+          Upload a transit ticket. We extract the route with vision AI, compute COâ‚‚ saved vs.
           driving and award Eco-Points.
         </p>
         <p className="text-xs text-muted-foreground mt-2">
@@ -125,7 +125,7 @@ export function CommuteScanner() {
         <Card className="bg-card border-border overflow-hidden relative">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Ticket className="w-5 h-5 text-emerald-500" />
+              <Ticket className="w-5 h-5 text-cyan-400" />
               Transit ticket
             </CardTitle>
             <CardDescription>Bus, metro or train ticket. JPEG or PNG, up to 10MB.</CardDescription>
@@ -139,8 +139,8 @@ export function CommuteScanner() {
                   onChange={onFileChange}
                   accept="image/png,image/jpeg"
                 />
-                <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Upload className="w-8 h-8 text-emerald-500" />
+                <div className="w-16 h-16 rounded-full bg-cyan-400/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Upload className="w-8 h-8 text-cyan-400" />
                 </div>
                 <div className="text-center">
                   <p className="font-medium">Drop your ticket here</p>
@@ -160,7 +160,7 @@ export function CommuteScanner() {
                     initial={{ top: '0%' }}
                     animate={{ top: '100%' }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-                    className="absolute left-0 right-0 h-1 bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.8)] z-10"
+                    className="absolute left-0 right-0 h-1 bg-cyan-500 shadow-[0_0_15px_rgba(72,217,245,0.8)] z-10"
                   />
                 )}
 
@@ -172,9 +172,9 @@ export function CommuteScanner() {
                       exit={{ opacity: 0 }}
                       className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center flex-col gap-3"
                     >
-                      <Loader2 className="w-8 h-8 text-emerald-500 animate-spin" />
+                      <Loader2 className="w-8 h-8 text-cyan-400 animate-spin" />
                       <p className="text-sm font-bold text-white tracking-widest uppercase">
-                        Reading ticket…
+                        Reading ticketâ€¦
                       </p>
                     </motion.div>
                   )}
@@ -195,11 +195,11 @@ export function CommuteScanner() {
 
             {!result && (
               <Button
-                className="w-full bg-emerald-600 hover:bg-emerald-500 h-11"
+                className="w-full bg-cyan-500 hover:bg-cyan-500 h-11"
                 disabled={!file || isScanning}
                 onClick={handleUpload}
               >
-                {isScanning ? 'Processing…' : 'Scan & save carbon'}
+                {isScanning ? 'Processingâ€¦' : 'Scan & save carbon'}
               </Button>
             )}
 
@@ -220,25 +220,25 @@ export function CommuteScanner() {
               exit={{ opacity: 0, x: -20 }}
               key="result"
             >
-              <Card className="bg-emerald-500/5 border-emerald-500/20 h-full">
+              <Card className="bg-cyan-400/5 border-cyan-400/20 h-full">
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-emerald-400 flex items-center gap-2">
+                    <CardTitle className="text-cyan-400 flex items-center gap-2">
                       <CheckCircle2 className="w-5 h-5" />
                       Scan successful
                     </CardTitle>
-                    <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 px-3">
+                    <Badge className="bg-cyan-400/20 text-cyan-400 border-cyan-400/30 px-3">
                       +{result.pointsAwarded} points
                     </Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-center gap-4 p-4 rounded-xl bg-black/20 border border-white/5">
-                    <div className="h-12 w-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                    <div className="h-12 w-12 rounded-full bg-cyan-400/20 flex items-center justify-center">
                       {result.transportMode === 'train' ? (
-                        <Train className="text-emerald-400" />
+                        <Train className="text-cyan-400" />
                       ) : (
-                        <Bus className="text-emerald-400" />
+                        <Bus className="text-cyan-400" />
                       )}
                     </div>
                     <div className="flex-1 flex items-center justify-between">
@@ -255,16 +255,16 @@ export function CommuteScanner() {
                   </div>
 
                   <div className="text-center py-6">
-                    <p className="text-sm text-muted-foreground mb-1">CO₂ saved vs driving</p>
+                    <p className="text-sm text-muted-foreground mb-1">COâ‚‚ saved vs driving</p>
                     <motion.h3
                       initial={{ scale: 0.5 }}
                       animate={{ scale: 1 }}
-                      className="text-5xl font-black text-emerald-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]"
+                      className="text-5xl font-black text-cyan-400 drop-shadow-[0_0_15px_rgba(72,217,245,0.4)]"
                     >
                       {result.carbonSaved.toFixed(2)} kg
                     </motion.h3>
-                    <p className="text-xs text-emerald-500/80 mt-2 font-medium flex items-center justify-center gap-1">
-                      <Sparkles className="w-3 h-3" />~{result.distanceKm.toFixed(1)} km of {result.transportMode} · ₹{result.rupeesSaved.toFixed(0)} saved
+                    <p className="text-xs text-cyan-400/80 mt-2 font-medium flex items-center justify-center gap-1">
+                      <Sparkles className="w-3 h-3" />~{result.distanceKm.toFixed(1)} km of {result.transportMode} Â· â‚¹{result.rupeesSaved.toFixed(0)} saved
                     </p>
                   </div>
 
@@ -287,7 +287,7 @@ export function CommuteScanner() {
                 </div>
                 <h3 className="font-bold text-muted-foreground">Awaiting scan</h3>
                 <p className="text-sm text-muted-foreground/60 max-w-[260px] mt-2">
-                  Upload a ticket to see the route, CO₂ saved and Eco-Points awarded.
+                  Upload a ticket to see the route, COâ‚‚ saved and Eco-Points awarded.
                 </p>
               </Card>
             </motion.div>
@@ -297,3 +297,5 @@ export function CommuteScanner() {
     </div>
   );
 }
+
+

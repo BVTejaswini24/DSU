@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import GlobeGL from 'react-globe.gl';
 
 type AltitudeAccessor = number | ((feat: any) => number);
@@ -63,11 +63,11 @@ export function Globe() {
         
         // Label styling
         polygonLabel={({ properties: d }: any) => `
-          <div class="bg-zinc-950/90 border border-emerald-500/30 p-3 rounded-xl shadow-2xl backdrop-blur-md">
-            <p class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-1">${d.ADMIN}</p>
+          <div class="bg-[#172B4D]/90 border border-cyan-400/30 p-3 rounded-xl shadow-2xl backdrop-blur-md">
+            <p class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-1">${d.ADMIN}</p>
             <div class="flex items-center gap-2">
-              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-              <p class="text-sm text-white font-medium">Efficiency Score: <span class="text-emerald-400">${Math.round(Math.random() * 40 + 60)}%</span></p>
+              <div class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></div>
+              <p class="text-sm text-white font-medium">Efficiency Score: <span class="text-cyan-400">${Math.round(Math.random() * 40 + 60)}%</span></p>
             </div>
             <p class="text-[10px] text-zinc-500 mt-1">Real-time Carbon Ingestion Active</p>
           </div>

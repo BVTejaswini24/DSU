@@ -9,7 +9,9 @@
  * clear error so the caller can render an honest "AI not configured" state.
  */
 
-const GROQ_MODEL = 'llama-3.3-70b-versatile';
+// llama-3.3-70b-versatile was retired by Groq on 2026-08-16 for free/developer tier keys.
+// Replacement: openai/gpt-oss-120b — same free tier, 128K context, equivalent quality.
+const GROQ_MODEL = 'openai/gpt-oss-120b';
 
 let groqClient = null;
 const getGroq = () => {

@@ -82,7 +82,7 @@ export function StatsSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
-          <p className="text-xs font-bold uppercase tracking-widest text-emerald-500">
+          <p className="text-xs font-bold uppercase tracking-widest text-cyan-400">
             Live platform numbers
           </p>
           <p className="text-sm text-muted-foreground mt-2">
@@ -99,7 +99,7 @@ export function StatsSection() {
               transition={{ delay: index * 0.1 }}
               className="flex flex-col items-center justify-center p-6"
             >
-              <div className="text-4xl md:text-5xl font-bold text-emerald-400 mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-cyan-400 mb-2">
                 {loading ? (
                   '—'
                 ) : (

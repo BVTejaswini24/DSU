@@ -12,42 +12,42 @@ const features = [
   title: 'Real activity ingestion',
   description:
   'Browser, hardware and lifestyle events feed a single carbon engine that uses India CEA grid intensity (0.71 kg CO₂/kWh, 2023) to compute your real footprint.',
-  icon: <Activity className="w-6 h-6 text-emerald-400" />,
+  icon: <Activity className="w-6 h-6 text-cyan-400" />,
   delay: 0.1
 },
 {
   title: 'AI Eco-Coach',
   description:
   "Powered by Groq's Llama 3.3, the coach grounds every reply in your real activity log to suggest changes that actually save money and carbon.",
-  icon: <Bot className="w-6 h-6 text-emerald-400" />,
+  icon: <Bot className="w-6 h-6 text-cyan-400" />,
   delay: 0.2
 },
 {
   title: 'Gamified Eco-Scores',
   description:
   'A live leaderboard and streaks turn small daily habits into a high-score game. Earn Eco-Points and trade them with other users.',
-  icon: <Trophy className="w-6 h-6 text-emerald-400" />,
+  icon: <Trophy className="w-6 h-6 text-cyan-400" />,
   delay: 0.3
 },
 {
   title: 'Hardware-aware tracking',
   description:
   'Sleep mode, screen brightness and unplugged peripherals all feed into the same engine, so hardware habits earn the credit they deserve.',
-  icon: <Laptop className="w-6 h-6 text-emerald-400" />,
+  icon: <Laptop className="w-6 h-6 text-cyan-400" />,
   delay: 0.4
 },
 {
   title: 'Doomscroll alerts',
   description:
   'The optional Chrome extension warns you when you have been scrolling on social media for too long and shows the carbon cost in real time.',
-  icon: <Zap className="w-6 h-6 text-emerald-400" />,
+  icon: <Zap className="w-6 h-6 text-cyan-400" />,
   delay: 0.5
 },
 {
   title: 'ESG-ready CSV export',
   description:
   'Generate a Scope 2 / Scope 3 CSV from your real activity in one click – useful for personal records or hackathon judges.',
-  icon: <LineChart className="w-6 h-6 text-emerald-400" />,
+  icon: <LineChart className="w-6 h-6 text-cyan-400" />,
   delay: 0.6
 }];
 
@@ -58,7 +58,7 @@ export function FeaturesSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">
             The complete toolkit for{' '}
-            <span className="text-emerald-400">digital sustainability</span>
+            <span className="text-cyan-400">digital sustainability</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             We measure carbon, attach a rupee value to it, gamify the reduction loop, and let an
@@ -87,9 +87,9 @@ export function FeaturesSection() {
               delay: feature.delay
             }}>
             
-              <Card className="h-full bg-card border-border hover:border-emerald-500/50 transition-colors group">
+              <Card className="h-full bg-card border-border hover:border-cyan-400/50 transition-colors group">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-cyan-400/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     {feature.icon}
                   </div>
                   <CardTitle className="text-xl">{feature.title}</CardTitle>

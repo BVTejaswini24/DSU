@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* INTERNAL USE NAME: Mono */
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Body sans-serif: DM Sans — clean, readable, modern */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+/* Pixel accent font: VT323 — CRT terminal pixel letterforms, subtle inline accent */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 /* --- MANAGED FONT IMPORTS END --- */
 
@@ -16,61 +20,94 @@
 /* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
 
 @custom-variant dark (&:is(.dark *));
+
+/* ── Midnight Blue + Electric Cyan palette ────────────────────────────────────
+   Palette hex reference:
+   #080D18  main background              #172B4D  cards / panels
+   #48D9F5  primary accent (Electric     #F4F7FB  primary text
+            Cyan)
+   #8BA3C7  secondary / muted text       #1E3A5F  borders (dark blue-grey)
+   #0D1B2E  sidebar
+
+   IMPORTANT: every variable below must hold a COMPLETE colour value (hex,
+   oklch, …). tailwind.config.js maps theme utilities via `var(--x)` directly
+   (e.g. `background: 'var(--background)'`), so Tailwind emits the variable
+   verbatim — it does NOT wrap it in rgb(). Bare space-separated RGB channels
+   (e.g. `8 13 24`) therefore produce invalid CSS (`background-color: 8 13 24`)
+   which browsers silently drop, wiping out the whole theme.
+─────────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --background: oklch(0.98 0.005 240); /* Very soft professional off-white/blue */
-  --foreground: oklch(0.25 0.01 240);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.25 0.01 240);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.01 240);
-  --primary: oklch(0.45 0.15 160); /* Emerald professional */
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.94 0.01 240);
-  --secondary-foreground: oklch(0.25 0.01 240);
-  --muted: oklch(0.94 0.01 240);
-  --muted-foreground: oklch(0.5 0.02 240);
-  --accent: oklch(0.94 0.01 240);
-  --accent-foreground: oklch(0.25 0.01 240);
+  --background: #080D18;
+  --foreground: #F4F7FB;
+  --card: #172B4D;
+  --card-foreground: #F4F7FB;
+  --popover: #172B4D;
+  --popover-foreground: #F4F7FB;
+  --primary: #48D9F5;
+  --primary-foreground: #080D18;
+  --secondary: #1E3A5F;
+  --secondary-foreground: #F4F7FB;
+  --muted: #1E3A5F;
+  --muted-foreground: #8BA3C7;
+  --accent: #1E3A5F;
+  --accent-foreground: #48D9F5;
   --destructive: oklch(0.6 0.18 25);
   --destructive-foreground: oklch(0.98 0.01 25);
-  --border: oklch(0.88 0.01 240);
-  --input: oklch(0.88 0.01 240);
-  --ring: oklch(0.45 0.15 160);
+  --border: #1E3A5F;
+  --input: #1E3A5F;
+  --ring: #48D9F5;
   --radius: 0.75rem;
+  /* chart colours */
+  --chart-1: #48D9F5;
+  --chart-2: #6366F1;
+  --chart-3: #F59E0B;
+  --chart-4: #F87171;
+  --chart-5: #34D399;
+  /* sidebar */
+  --sidebar: #0D1B2E;
+  --sidebar-foreground: #F4F7FB;
+  --sidebar-primary: #48D9F5;
+  --sidebar-primary-foreground: #080D18;
+  --sidebar-accent: #1E3A5F;
+  --sidebar-accent-foreground: #F4F7FB;
+  --sidebar-border: #1E3A5F;
+  --sidebar-ring: #48D9F5;
 }
+
 :root.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #080D18;
+  --foreground: #F4F7FB;
+  --card: #172B4D;
+  --card-foreground: #F4F7FB;
+  --popover: #172B4D;
+  --popover-foreground: #F4F7FB;
+  --primary: #48D9F5;
+  --primary-foreground: #080D18;
+  --secondary: #1E3A5F;
+  --secondary-foreground: #F4F7FB;
+  --muted: #1E3A5F;
+  --muted-foreground: #8BA3C7;
+  --accent: #1E3A5F;
+  --accent-foreground: #48D9F5;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --border: #1E3A5F;
+  --input: #1E3A5F;
+  --ring: #48D9F5;
+  --chart-1: #48D9F5;
+  --chart-2: #6366F1;
+  --chart-3: #F59E0B;
+  --chart-4: #F87171;
+  --chart-5: #34D399;
+  --sidebar: #0D1B2E;
+  --sidebar-foreground: #F4F7FB;
+  --sidebar-primary: #48D9F5;
+  --sidebar-primary-foreground: #080D18;
+  --sidebar-accent: #1E3A5F;
+  --sidebar-accent-foreground: #F4F7FB;
+  --sidebar-border: #1E3A5F;
+  --sidebar-ring: #48D9F5;
 }
 @layer base {
   * {
@@ -78,6 +115,22 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', 'Geist', ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
+}
+
+/* ── Pixel accent word ────────────────────────────────────────────────────────
+   Applied via `font-pixel` only to the word "emissions" in the hero heading.
+   VT323 is a CRT terminal font — narrow, readable pixel letterforms that sit
+   naturally inline without dominating the surrounding DM Sans text.
+   font-size is bumped ~20% (via em) to visually match DM Sans cap-height,
+   since VT323 has a shorter cap-height than most sans-serif fonts.
+─────────────────────────────────────────────────────────────────────────── */
+.font-pixel {
+  font-family: 'VT323', monospace;
+  font-size: 1.22em;
+  line-height: inherit;
+  letter-spacing: 0.03em;
+  vertical-align: baseline;
 }

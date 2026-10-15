@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Trophy, Loader2, RefreshCw, Users } from 'lucide-react';
 
 import {
@@ -72,7 +72,7 @@ export function Leaderboard() {
       <CardContent>
         {loading ? (
           <div className="flex justify-center py-8">
-            <Loader2 className="w-6 h-6 animate-spin text-emerald-500" />
+            <Loader2 className="w-6 h-6 animate-spin text-cyan-400" />
           </div>
         ) : leaders.length === 0 ? (
           <div className="flex flex-col items-center justify-center text-center py-10 gap-3">
@@ -93,18 +93,18 @@ export function Leaderboard() {
                   key={user.id || index}
                   className={`flex items-center justify-between p-2 rounded-lg transition-all ${
                     isCurrentUser
-                      ? 'bg-emerald-500/10 border border-emerald-500/20'
+                      ? 'bg-cyan-400/10 border border-cyan-400/20'
                       : 'hover:bg-secondary/50'
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="w-6 text-center text-sm font-bold text-muted-foreground">
                       {index === 0
-                        ? '🥇'
+                        ? 'ðŸ¥‡'
                         : index === 1
-                        ? '🥈'
+                        ? 'ðŸ¥ˆ'
                         : index === 2
-                        ? '🥉'
+                        ? 'ðŸ¥‰'
                         : index + 1}
                     </div>
                     <Avatar className="h-8 w-8">
@@ -119,7 +119,7 @@ export function Leaderboard() {
                         {isCurrentUser && (
                           <Badge
                             variant="outline"
-                            className="text-[10px] h-4 px-1 py-0 border-emerald-500/50 text-emerald-400"
+                            className="text-[10px] h-4 px-1 py-0 border-cyan-400/50 text-cyan-400"
                           >
                             You
                           </Badge>
@@ -127,13 +127,13 @@ export function Leaderboard() {
                       </p>
                       {user.streak > 0 && (
                         <p className="text-[10px] text-muted-foreground">
-                          🔥 {user.streak} day streak · {user.carbonSaved.toFixed(1)} kg saved
+                          ðŸ”¥ {user.streak} day streak Â· {user.carbonSaved.toFixed(1)} kg saved
                         </p>
                       )}
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-bold text-emerald-400">{user.score}</p>
+                    <p className="text-sm font-bold text-cyan-400">{user.score}</p>
                   </div>
                 </div>
               );
@@ -144,3 +144,5 @@ export function Leaderboard() {
     </Card>
   );
 }
+
+

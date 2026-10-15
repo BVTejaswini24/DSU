@@ -47,7 +47,9 @@ export default {content: [
         'destructive-foreground': 'var(--destructive-foreground)'
       },
       fontFamily: {
+        sans: ['"DM Sans"', 'Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         heading: ['Geist'],
+        pixel: ['VT323', 'monospace'],
         mono: ['"Geist Mono"']
       }
     }

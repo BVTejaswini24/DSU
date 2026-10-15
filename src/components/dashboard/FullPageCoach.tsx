@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Send, Sparkles, Brain, Zap, ShieldCheck, RefreshCw, User as UserIcon } from 'lucide-react';
 
@@ -68,22 +68,22 @@ export function FullPageCoach() {
 
   const insights = [
     `Your Eco-Score is ${user?.ecoScore ?? 0}/100.`,
-    `${(user?.totalCarbonSaved ?? 0).toFixed(1)} kg CO₂ saved so far.`,
+    `${(user?.totalCarbonSaved ?? 0).toFixed(1)} kg COâ‚‚ saved so far.`,
     `Current streak: ${user?.currentStreak ?? 0} day(s).`
   ];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[calc(100vh-12rem)]">
       <div className="lg:col-span-1 space-y-4">
-        <Card className="bg-emerald-500/5 border-emerald-500/20 p-4">
-          <h3 className="text-sm font-bold text-emerald-400 flex items-center gap-2 mb-3">
+        <Card className="bg-cyan-400/5 border-cyan-400/20 p-4">
+          <h3 className="text-sm font-bold text-cyan-400 flex items-center gap-2 mb-3">
             <Brain className="w-4 h-4" />
             Live context
           </h3>
           <div className="space-y-3">
             <div className="p-2 bg-black/20 rounded-md border border-white/5">
               <p className="text-[10px] text-muted-foreground uppercase mb-1">User</p>
-              <p className="text-xs text-foreground font-medium">{user?.name || 'Loading…'}</p>
+              <p className="text-xs text-foreground font-medium">{user?.name || 'Loadingâ€¦'}</p>
             </div>
             <div className="p-2 bg-black/20 rounded-md border border-white/5">
               <p className="text-[10px] text-muted-foreground uppercase mb-1">Eco-Score</p>
@@ -105,7 +105,7 @@ export function FullPageCoach() {
           </h3>
           <ul className="text-[11px] space-y-2 text-muted-foreground">
             {insights.map((i) => (
-              <li key={i}>• {i}</li>
+              <li key={i}>â€¢ {i}</li>
             ))}
           </ul>
         </Card>
@@ -114,7 +114,7 @@ export function FullPageCoach() {
       <Card className="lg:col-span-3 flex flex-col bg-card border-border overflow-hidden">
         <div className="p-4 border-b border-border bg-secondary/20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-emerald-500 p-2 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+            <div className="bg-cyan-500 p-2 rounded-xl shadow-[0_0_15px_rgba(72,217,245,0.3)]">
               <Bot className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -122,15 +122,15 @@ export function FullPageCoach() {
                 Eco-Coach Pro
                 <Sparkles className="w-3 h-3 text-yellow-400" />
               </h2>
-              <p className="text-[10px] text-emerald-400 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Llama 3.3 · grounded in your real activity
+              <p className="text-[10px] text-cyan-400 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                Llama 3.3 Â· grounded in your real activity
               </p>
             </div>
           </div>
           <Badge
             variant="outline"
-            className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 px-2 py-0.5 rounded-full text-[10px] font-bold"
+            className="bg-cyan-400/10 text-cyan-400 border-cyan-400/20 px-2 py-0.5 rounded-full text-[10px] font-bold"
           >
             <ShieldCheck className="w-3 h-3 mr-1 inline" />
             Private context
@@ -153,7 +153,7 @@ export function FullPageCoach() {
                 >
                   <div
                     className={`mt-1 h-8 w-8 rounded-full flex items-center justify-center shrink-0 ${
-                      msg.role === 'user' ? 'bg-blue-600' : 'bg-emerald-600'
+                      msg.role === 'user' ? 'bg-blue-600' : 'bg-cyan-500'
                     }`}
                   >
                     {msg.role === 'user' ? (
@@ -165,7 +165,7 @@ export function FullPageCoach() {
                   <div
                     className={`rounded-2xl px-4 py-3 text-sm shadow-sm ${
                       msg.role === 'user'
-                        ? 'bg-emerald-600 text-white rounded-tr-sm'
+                        ? 'bg-cyan-500 text-white rounded-tr-sm'
                         : 'bg-secondary/80 text-foreground rounded-tl-sm border border-border'
                     }`}
                   >
@@ -176,12 +176,12 @@ export function FullPageCoach() {
             ))}
             {isTyping && (
               <div className="flex justify-start gap-3">
-                <div className="mt-1 h-8 w-8 rounded-full bg-emerald-600 flex items-center justify-center">
+                <div className="mt-1 h-8 w-8 rounded-full bg-cyan-500 flex items-center justify-center">
                   <Bot className="w-4 h-4 text-white" />
                 </div>
                 <div className="bg-secondary/80 text-foreground rounded-2xl rounded-tl-sm px-4 py-3 border border-border flex gap-2 items-center">
                   <span className="text-xs text-muted-foreground">Thinking</span>
-                  <RefreshCw className="w-3 h-3 animate-spin text-emerald-400" />
+                  <RefreshCw className="w-3 h-3 animate-spin text-cyan-400" />
                 </div>
               </div>
             )}
@@ -193,14 +193,14 @@ export function FullPageCoach() {
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask anything about your carbon footprint…"
-              className="flex-1 bg-secondary border-border focus-visible:ring-emerald-500 h-12 text-base"
+              placeholder="Ask anything about your carbon footprintâ€¦"
+              className="flex-1 bg-secondary border-border focus-visible:ring-cyan-400 h-12 text-base"
               disabled={isTyping}
             />
             <Button
               type="submit"
               size="icon"
-              className="h-12 w-12 bg-emerald-600 hover:bg-emerald-500 shrink-0 shadow-lg shadow-emerald-500/20"
+              className="h-12 w-12 bg-cyan-500 hover:bg-cyan-500 shrink-0 shadow-lg shadow-cyan-400/20"
               disabled={!input.trim() || isTyping}
             >
               <Send className="h-5 w-5" />
@@ -211,7 +211,7 @@ export function FullPageCoach() {
               <button
                 key={prompt}
                 onClick={() => setInput(prompt)}
-                className="text-[10px] text-muted-foreground hover:text-emerald-400 transition-colors"
+                className="text-[10px] text-muted-foreground hover:text-cyan-400 transition-colors"
               >
                 {prompt}
               </button>
@@ -222,3 +222,5 @@ export function FullPageCoach() {
     </div>
   );
 }
+
+

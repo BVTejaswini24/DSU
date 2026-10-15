@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { 
   Building2, 
   ShieldCheck, 
@@ -38,7 +38,7 @@ const enterpriseFeatures = [
 
 export function EnterpriseDemoPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
+    <div className="min-h-screen bg-[#080D18] text-white">
       <Navbar />
       
       <main className="pt-32 pb-20">
@@ -59,7 +59,7 @@ export function EnterpriseDemoPage() {
               animate={{ opacity: 1, y: 0 }}
               className="text-6xl md:text-7xl font-black tracking-tight leading-[1.05]"
             >
-              Sustainability at <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Scale.</span>
+              Sustainability at <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Scale.</span>
             </motion.h1>
             
             <motion.p 
@@ -142,7 +142,7 @@ export function EnterpriseDemoPage() {
 
         {/* CTA */}
         <section className="container mx-auto px-4 py-24">
-          <div className="max-w-5xl mx-auto rounded-[40px] bg-gradient-to-br from-blue-600 to-emerald-600 p-12 md:p-20 text-center relative overflow-hidden">
+          <div className="max-w-5xl mx-auto rounded-[40px] bg-gradient-to-br from-blue-600 to-cyan-500 p-12 md:p-20 text-center relative overflow-hidden">
              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
              <div className="relative z-10 space-y-8">
                 <h2 className="text-4xl md:text-5xl font-black">Built for teams that ship.</h2>
@@ -164,3 +164,5 @@ export function EnterpriseDemoPage() {
     </div>
   );
 }
+
+
