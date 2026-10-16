@@ -13,16 +13,32 @@ const isBrowserProd =
   window.location.hostname !== 'localhost' &&
   window.location.hostname !== '127.0.0.1';
 
-const RAW_BASE_URL =
-  (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_API_URL) ||
-  (isBrowserProd
-    ? 'https://carboncum.onrender.com/api'
-    : 'http://localhost:3001/api');
+const DEFAULT_BASE_URL = isBrowserProd
+  ? 'https://carboniq-api-tejaswini.onrender.com/api'
+  : 'http://localhost:3001/api';
 
-const BASE_URL = (() => {
-  const trimmed = RAW_BASE_URL.replace(/\/+$/, '');
+const RAW_BASE_URL =
+  ((typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_API_URL) || '').trim() ||
+  DEFAULT_BASE_URL;
+
+/**
+ * Normalise whatever we were given into exactly one trailing `/api`:
+ *   'https://host'             -> 'https://host/api'
+ *   'https://host/api'         -> 'https://host/api'
+ *   'https://host/api/'        -> 'https://host/api'
+ * so VITE_API_URL can be set with or without the suffix and never produces
+ * '/api/api' or a missing prefix.
+ */
+const normalizeBaseUrl = (raw: string): string => {
+  const trimmed = raw.replace(/\/+$/, '');
   return /\/api$/i.test(trimmed) ? trimmed : `${trimmed}/api`;
-})();
+};
+
+export const API_BASE_URL = normalizeBaseUrl(RAW_BASE_URL);
+
+/** Absolute URL for an API path, shared by api.ts and one-off fetch() callers. */
+export const buildApiUrl = (path: string): string =>
+  `${API_BASE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 
 const STORAGE_TOKEN = 'carbontwin_token';
 const STORAGE_USER_ID = 'carbontwin_userId';
@@ -46,7 +62,7 @@ const buildHeaders = (extra: Record<string, string> = {}): Record<string, string
 
 const request = <T>(path: string, options: RequestInit = {}): Promise<T> =>
   withColdStartHint(async () => {
-    const res = await fetch(`${BASE_URL}${path}`, {
+    const res = await fetch(buildApiUrl(path), {
       ...options,
       headers: buildHeaders(options.headers as Record<string, string>)
     });
@@ -271,7 +287,7 @@ export const api = {
   },
 
   exportEsgUrl: (format: 'csv' | 'json' = 'csv') =>
-    `${BASE_URL}/export/esg?format=${format}`
+    buildApiUrl(`/export/esg?format=${format}`)
 };
 
 export const getStoredUserId = () => localStorage.getItem(STORAGE_USER_ID) || '';

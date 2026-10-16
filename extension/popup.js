@@ -14,7 +14,7 @@
  */
 
 const DEFAULT_CONFIG = {
-  apiBase: 'https://carboncum.onrender.com/api',
+  apiBase: 'https://carboniq-api-tejaswini.onrender.com/api',
   dashboardUrl: 'https://carbontwin-tau.vercel.app/'
 };
 

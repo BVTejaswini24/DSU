@@ -23,13 +23,13 @@ import {
 } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { getStoredToken } from '../../services/api';
+import { buildApiUrl, getStoredToken } from '../../services/api';
 import { useDashboard } from '../../services/DashboardContext';
 
-const SCAN_URL = `${
-  (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_API_URL) ||
-  'http://localhost:3001/api'
-}/sustainability/scan-ticket`;
+// Built from the same base URL + normalisation as every other API call, so
+// local dev hits localhost:3001 and production hits the Render backend with
+// exactly one '/api' segment (see src/services/api.ts).
+const SCAN_URL = buildApiUrl('/sustainability/scan-ticket');
 
 interface ScanResult {
   origin: string;

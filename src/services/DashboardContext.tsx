@@ -17,8 +17,8 @@ const isBrowserProd =
   window.location.hostname !== '127.0.0.1';
 
 const SOCKET_URL =
-  (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_SOCKET_URL) ||
-  (isBrowserProd ? 'https://carboncum.onrender.com' : 'http://localhost:3001');
+  ((typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_SOCKET_URL) || '').trim() ||
+  (isBrowserProd ? 'https://carboniq-api-tejaswini.onrender.com' : 'http://localhost:3001');
 
 export type ChartPeriod = 'weekly' | 'monthly' | 'yearly';
 
