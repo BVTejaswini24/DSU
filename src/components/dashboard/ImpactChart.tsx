@@ -17,6 +17,7 @@ import {
   CardTitle
 } from '../ui/card';
 import { useDashboard } from '../../services/DashboardContext';
+import { useThemeColors } from '../../services/theme';
 
 const periods: Array<{ label: string; value: 'weekly' | 'monthly' | 'yearly' }> = [
   { label: '7D', value: 'weekly' },
@@ -26,6 +27,9 @@ const periods: Array<{ label: string; value: 'weekly' | 'monthly' | 'yearly' }> 
 
 export function ImpactChart() {
   const { chartData, loading, period, setPeriod } = useDashboard();
+  // SVG attributes and Recharts props cannot read CSS variables, so the
+  // palette is resolved here — useThemeColors() re-reads it on theme change.
+  const colors = useThemeColors();
 
   const hasAnyData = chartData.some((d) => d.co2 > 0 || d.saved > 0);
 
@@ -35,7 +39,7 @@ export function ImpactChart() {
         <div>
           <CardTitle>Impact Chart</CardTitle>
           <CardDescription>
-            COâ‚‚ emitted vs COâ‚‚ saved per day. Built from your real activity log.
+            CO₂ emitted vs CO₂ saved per day. Built from your real activity log.
           </CardDescription>
         </div>
         <div className="flex gap-1 bg-secondary rounded-lg p-1">
@@ -45,7 +49,7 @@ export function ImpactChart() {
               onClick={() => setPeriod(p.value)}
               className={`px-3 py-1 text-xs rounded-md transition-all font-medium ${
                 period === p.value
-                  ? 'bg-primary text-[#0B0B0A] font-semibold'
+                  ? 'bg-primary text-primary-foreground font-semibold'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -79,55 +83,56 @@ export function ImpactChart() {
               >
                 <defs>
                   <linearGradient id="colorCo2" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#ef4444" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
+                    <stop offset="5%" stopColor={colors.chartEmitted} stopOpacity={0.4} />
+                    <stop offset="95%" stopColor={colors.chartEmitted} stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="colorSaved" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#D4E76A" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#D4E76A" stopOpacity={0} />
+                    <stop offset="5%" stopColor={colors.chartSaved} stopOpacity={0.4} />
+                    <stop offset="95%" stopColor={colors.chartSaved} stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid
                   strokeDasharray="5 5"
-                  stroke="rgba(255,255,255,0.05)"
+                  stroke={colors.chartGrid}
                   vertical={false}
                 />
                 <XAxis
                   dataKey="date"
-                  stroke="#4b5563"
+                  stroke={colors.chartTick}
                   fontSize={10}
                   tickLine={false}
                   axisLine={false}
                   minTickGap={30}
-                  tick={{ fill: '#9ca3af' }}
+                  tick={{ fill: colors.chartTick }}
                 />
                 <YAxis
                   yAxisId="left"
-                  stroke="#4b5563"
+                  stroke={colors.chartTick}
                   fontSize={10}
                   tickLine={false}
                   axisLine={false}
                   tickFormatter={(v) => `${v}kg`}
-                  tick={{ fill: '#f87171' }}
+                  tick={{ fill: colors.chartEmitted }}
                 />
                 <YAxis
                   yAxisId="right"
                   orientation="right"
-                  stroke="#4b5563"
+                  stroke={colors.chartTick}
                   fontSize={10}
                   tickLine={false}
                   axisLine={false}
                   tickFormatter={(v) => `${v}kg`}
-                  tick={{ fill: '#D4E76A' }}
+                  tick={{ fill: colors.chartSaved }}
                 />
                 <Tooltip
-                  cursor={{ stroke: 'rgba(212,231,106,0.15)', strokeWidth: 2 }}
+                  cursor={{ stroke: colors.primary, strokeOpacity: 0.35 }}
                   contentStyle={{
-                    backgroundColor: 'rgba(26,26,23,0.97)',
-                    borderColor: 'rgba(212,231,106,0.2)',
+                    backgroundColor: 'var(--popover)',
+                    color: 'var(--popover-foreground)',
+                    borderColor: 'var(--border)',
                     borderRadius: '12px',
                     backdropFilter: 'blur(8px)',
-                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.35)',
                     padding: '12px',
                     borderWidth: '1px'
                   }}
@@ -137,8 +142,8 @@ export function ImpactChart() {
                   yAxisId="left"
                   type="monotone"
                   dataKey="co2"
-                  name="COâ‚‚ Emitted"
-                  stroke="#ef4444"
+                  name="CO₂ Emitted"
+                  stroke={colors.chartEmitted}
                   strokeWidth={3}
                   fillOpacity={1}
                   fill="url(#colorCo2)"
@@ -148,8 +153,8 @@ export function ImpactChart() {
                   yAxisId="right"
                   type="monotone"
                   dataKey="saved"
-                  name="COâ‚‚ Saved"
-                  stroke="#D4E76A"
+                  name="CO₂ Saved"
+                  stroke={colors.chartSaved}
                   strokeWidth={3}
                   fillOpacity={1}
                   fill="url(#colorSaved)"

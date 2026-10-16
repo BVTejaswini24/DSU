@@ -6,6 +6,7 @@ import { EnterpriseDemoPage } from './pages/EnterpriseDemoPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { AuthPage } from './pages/AuthPage';
 import { Toaster } from './components/ui/sonner';
+import { useTheme } from './services/theme';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const token = localStorage.getItem('carbontwin_token');
@@ -14,6 +15,8 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 export function App() {
+  const theme = useTheme();
+
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Routes>
@@ -32,7 +35,7 @@ export function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       {/* Global toaster so cold-start hints work on every page (including Auth) */}
-      <Toaster theme="dark" position="top-center" richColors closeButton />
+      <Toaster theme={theme} position="top-center" richColors closeButton />
     </Router>
   );
 }

@@ -29,13 +29,13 @@ const categoryIcon = (category: string) => {
 const categoryColor = (category: string) => {
   switch (category) {
     case 'Browser':
-      return 'bg-[#A9B85A]/10 text-[#A9B85A] border-[#A9B85A]/20';
+      return 'bg-brand-2/10 text-brand-2 border-brand-2/20';
     case 'Hardware':
-      return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
+      return 'bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20';
     case 'Lifestyle':
       return 'bg-primary/10 text-primary border-primary/20';
     default:
-      return 'bg-gray-500/10 text-gray-400 border-gray-500/20';
+      return 'bg-muted text-muted-foreground border-border';
   }
 };
 
@@ -96,8 +96,8 @@ export function ActivityLogPage() {
 
   const categoryClass = useMemo(
     () => ({
-      Browser: 'bg-[#A9B85A]/10 text-[#A9B85A]/90 border-[#A9B85A]/20',
-      Hardware: 'bg-orange-500/10 text-orange-300 border-orange-500/20',
+      Browser: 'bg-brand-2/10 text-brand-2/90 border-brand-2/20',
+      Hardware: 'bg-orange-500/10 text-orange-600 dark:text-orange-300 border-orange-500/20',
       Lifestyle: 'bg-primary/10 text-primary/80 border-primary/20'
     }),
     []
@@ -190,7 +190,7 @@ export function ActivityLogPage() {
                       {tip.category}
                     </Badge>
                     <span className="text-xs text-primary/80">
-                      Save {tip.potentialSavingsKg.toFixed(2)} kg CO2 | â‚¹
+                      Save {tip.potentialSavingsKg.toFixed(2)} kg CO2 | ₹
                       {tip.potentialSavingsInr.toFixed(0)}
                     </span>
                   </div>
@@ -206,7 +206,7 @@ export function ActivityLogPage() {
                     </Button>
                     <Button
                       size="sm"
-                      className="bg-primary hover:bg-primary text-[#0B0B0A]"
+                      className="bg-primary hover:bg-primary text-primary-foreground"
                       disabled={actingTipId === tip.id}
                       onClick={() => actOnTip(tip.id, 'accept')}
                     >
@@ -227,7 +227,7 @@ export function ActivityLogPage() {
             <p className="text-sm font-medium">No activity yet.</p>
             <p className="text-xs text-muted-foreground max-w-md mx-auto">
               Apply a habit from the simulator, scan a transit ticket or accept a coach suggestion.
-              Each action you take will appear here with its real COâ‚‚ and â‚¹ impact.
+              Each action you take will appear here with its real CO₂ and ₹ impact.
             </p>
           </div>
         ) : (
@@ -252,14 +252,14 @@ export function ActivityLogPage() {
                   <div className="text-left sm:text-right shrink-0">
                     <p
                       className={`text-sm font-semibold ${
-                        isPositive ? 'text-primary' : 'text-red-400'
+                        isPositive ? 'text-primary' : 'text-red-600 dark:text-red-400'
                       }`}
                     >
-                      {isPositive ? 'âˆ’' : '+'}
-                      {Math.abs(entry.carbonImpact).toFixed(3)} kg COâ‚‚
+                      {isPositive ? '−' : '+'}
+                      {Math.abs(entry.carbonImpact).toFixed(3)} kg CO₂
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {isPositive ? 'âˆ’' : '+'}â‚¹{Math.abs(entry.costImpact).toFixed(2)}
+                      {isPositive ? '−' : '+'}₹{Math.abs(entry.costImpact).toFixed(2)}
                     </p>
                   </div>
                 </div>

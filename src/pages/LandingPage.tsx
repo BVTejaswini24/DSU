@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Navbar } from '../components/landing/Navbar';
 import { HeroSection } from '../components/landing/HeroSection';
 import { FeaturesSection } from '../components/landing/FeaturesSection';
@@ -7,13 +6,8 @@ import { StatsSection } from '../components/landing/StatsSection';
 import { CTASection } from '../components/landing/CTASection';
 import { Footer } from '../components/landing/Footer';
 export function LandingPage() {
-  // Ensure dark mode is active for the landing page
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-    return () => {
-
-      // We'll keep dark mode for the whole app as requested
-    };}, []);
+  // Theme is global: src/services/theme.ts (plus the index.html bootstrap
+  // script) decides light vs dark — no page forces a theme anymore.
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
       <Navbar />

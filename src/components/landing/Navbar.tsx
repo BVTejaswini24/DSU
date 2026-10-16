@@ -66,7 +66,7 @@ export function Navbar() {
               </Button>
             </Link>
             <Link to="/auth">
-              <Button className="bg-primary hover:bg-primary/85 text-[#0B0B0A] font-semibold shadow-[0_0_15px_rgba(212,231,106,0.3)]">
+              <Button className="bg-primary hover:bg-primary/85 text-primary-foreground font-semibold shadow-[0_0_15px_rgba(212,231,106,0.3)]">
                 Get started
               </Button>
             </Link>
@@ -129,7 +129,7 @@ export function Navbar() {
                   </Button>
                 </Link>
                 <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-primary hover:bg-primary/85 text-[#0B0B0A] font-semibold">
+                  <Button className="w-full bg-primary hover:bg-primary/85 text-primary-foreground font-semibold">
                     Get started
                   </Button>
                 </Link>

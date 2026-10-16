@@ -19,10 +19,17 @@
 
 /* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
 
-@custom-variant dark (&:is(.dark *));
+/* Dark variants are driven by tailwind.config.js (`darkMode: 'selector'`):
+   utilities like `dark:*` activate when <html> carries the `dark` class. */
 
-/* ── Near-black + Lime palette ────────────────────────────────────────────────
-   Palette hex reference:
+/* ── CarbonIQ palettes — LIGHT in :root, DARK in :root.dark ────────────────────────────────────────────────
+   How theming works:
+   - The active theme is the presence of the `dark` class on <html>.
+   - An inline script in index.html applies the persisted choice before first
+     paint, so the page never flashes the wrong theme on reload.
+   - src/services/theme.ts is the single JS source of truth: it exposes
+     useTheme()/toggleTheme(), toggles the class and persists to localStorage.
+   Palette hex reference (dark):
    #0B0B0A  main background              #141412  secondary surfaces
    #1A1A17  cards / panels               #34342D  borders / dividers
    #D4E76A  primary accent (lime)        #A9B85A  secondary accent (olive)
@@ -37,44 +44,54 @@
 ─────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  --background: #0B0B0A;
-  --foreground: #F5F5EF;
-  --card: #1A1A17;
-  --card-foreground: #F5F5EF;
-  --popover: #1A1A17;
-  --popover-foreground: #F5F5EF;
-  --primary: #D4E76A;
-  --primary-foreground: #0B0B0A;
-  --secondary: #141412;
-  --secondary-foreground: #F5F5EF;
-  --muted: #141412;
-  --muted-foreground: #A6A69C;
-  --accent: #1A1A17;
-  --accent-foreground: #D4E76A;
+  color-scheme: light;
+
+  /* LIGHT MODE — warm white surfaces, near-black text, deep lime accents */
+  --background: #F2F2EC;
+  --foreground: #1B1B14;
+  --card: #FFFFFF;
+  --card-foreground: #1B1B14;
+  --popover: #FFFFFF;
+  --popover-foreground: #1B1B14;
+  --primary: #4E5C12;
+  --primary-foreground: #FFFFFF;
+  --brand-2: #6B7A2B;
+  --secondary: #E8E8E0;
+  --secondary-foreground: #1B1B14;
+  --muted: #E8E8E0;
+  --muted-foreground: #5E5E54;
+  --accent: #E8EDD6;
+  --accent-foreground: #3E4A0E;
   --destructive: oklch(0.6 0.18 25);
   --destructive-foreground: oklch(0.98 0.01 25);
-  --border: #34342D;
-  --input: #34342D;
-  --ring: #D4E76A;
+  --border: #DDDDD3;
+  --input: #CFCFC3;
+  --ring: #4E5C12;
   --radius: 0.75rem;
   /* chart colours */
-  --chart-1: #D4E76A;
-  --chart-2: #A9B85A;
-  --chart-3: #D9CBA0;
-  --chart-4: #B36A4A;
-  --chart-5: #7A8A55;
+  --chart-1: #4E5C12;
+  --chart-2: #6B7A2B;
+  --chart-3: #8A6D3A;
+  --chart-4: #A85A38;
+  --chart-5: #5C6B33;
+  --chart-grid: #E3E3DA;
+  --chart-tick: #6B6B60;
+  --chart-emitted: #DC2626;
   /* sidebar */
-  --sidebar: #0B0B0A;
-  --sidebar-foreground: #F5F5EF;
-  --sidebar-primary: #D4E76A;
-  --sidebar-primary-foreground: #0B0B0A;
-  --sidebar-accent: #1A1A17;
-  --sidebar-accent-foreground: #F5F5EF;
-  --sidebar-border: #34342D;
-  --sidebar-ring: #D4E76A;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1B1B14;
+  --sidebar-primary: #4E5C12;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8E8E0;
+  --sidebar-accent-foreground: #1B1B14;
+  --sidebar-border: #DDDDD3;
+  --sidebar-ring: #4E5C12;
 }
 
 :root.dark {
+  color-scheme: dark;
+
+  /* DARK MODE — CarbonIQ black + lime identity (unchanged palette) */
   --background: #0B0B0A;
   --foreground: #F5F5EF;
   --card: #1A1A17;
@@ -83,6 +100,7 @@
   --popover-foreground: #F5F5EF;
   --primary: #D4E76A;
   --primary-foreground: #0B0B0A;
+  --brand-2: #A9B85A;
   --secondary: #141412;
   --secondary-foreground: #F5F5EF;
   --muted: #141412;
@@ -99,6 +117,9 @@
   --chart-3: #D9CBA0;
   --chart-4: #B36A4A;
   --chart-5: #7A8A55;
+  --chart-grid: rgba(255, 255, 255, 0.05);
+  --chart-tick: #9ca3af;
+  --chart-emitted: #ef4444;
   --sidebar: #0B0B0A;
   --sidebar-foreground: #F5F5EF;
   --sidebar-primary: #D4E76A;

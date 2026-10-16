@@ -2,6 +2,7 @@ import { Cloud, IndianRupee, Trophy, Flame, Loader2 } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { useDashboard } from '../../services/DashboardContext';
+import { formatINR } from '../../lib/format';
 
 export function MetricsCards() {
   const { user, loading } = useDashboard();
@@ -11,13 +12,11 @@ export function MetricsCards() {
       title: 'Total Carbon Saved',
       value: `${(user?.totalCarbonSaved ?? 0).toFixed(2)} kg`,
       subtext: 'Across every action you logged',
-      icon: <Cloud className="h-4 w-4 text-[#A9B85A]" />
+      icon: <Cloud className="h-4 w-4 text-brand-2" />
     },
     {
       title: 'Total Rupees Saved',
-      value: `â‚¹${Number(user?.totalRupeesSaved ?? 0).toLocaleString('en-IN', {
-        maximumFractionDigits: 0
-      })}`,
+      value: formatINR(Number(user?.totalRupeesSaved ?? 0)),
       subtext: 'Estimated savings from greener habits',
       icon: <IndianRupee className="h-4 w-4 text-primary" />
     },
@@ -28,9 +27,9 @@ export function MetricsCards() {
         (user?.ecoScore ?? 0) >= 80
           ? 'Outstanding efficiency'
           : (user?.ecoScore ?? 0) >= 50
-          ? 'Good momentum â€“ keep going'
+          ? 'Good momentum – keep going'
           : 'Log activity to grow your score',
-      icon: <Trophy className="h-4 w-4 text-yellow-400" />
+      icon: <Trophy className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
     },
     {
       title: 'Current Streak',
@@ -38,7 +37,7 @@ export function MetricsCards() {
         (user?.currentStreak ?? 0) === 1 ? 'Day' : 'Days'
       }`,
       subtext: 'Consecutive days of action',
-      icon: <Flame className="h-4 w-4 text-orange-400" />
+      icon: <Flame className="h-4 w-4 text-orange-600 dark:text-orange-400" />
     }
   ];
 

@@ -143,7 +143,7 @@ export function SettingsView() {
           >
             {savingProfile ? (
               <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Savingâ€¦
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Saving…
               </>
             ) : (
               <>
@@ -157,7 +157,7 @@ export function SettingsView() {
       <Card className="bg-card border-border">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <Shield className="w-5 h-5 text-[#A9B85A]" />
+            <Shield className="w-5 h-5 text-brand-2" />
             <CardTitle>Password</CardTitle>
           </div>
           <CardDescription>Change the password used to sign in.</CardDescription>
@@ -171,7 +171,7 @@ export function SettingsView() {
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
                 className="bg-secondary/50"
-                placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+                placeholder="••••••••"
               />
             </div>
             <div className="space-y-2">
@@ -181,7 +181,7 @@ export function SettingsView() {
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 className="bg-secondary/50"
-                placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+                placeholder="••••••••"
               />
             </div>
             <div className="space-y-2">
@@ -191,14 +191,14 @@ export function SettingsView() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 className="bg-secondary/50"
-                placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+                placeholder="••••••••"
               />
             </div>
           </div>
           <Button onClick={handlePasswordSave} disabled={savingPassword} variant="outline">
             {savingPassword ? (
               <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Updatingâ€¦
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Updating…
               </>
             ) : (
               <>
@@ -240,7 +240,7 @@ export function SettingsView() {
             >
               {deleting ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Deletingâ€¦
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Deleting…
                 </>
               ) : (
                 'Delete account'

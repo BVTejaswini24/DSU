@@ -68,7 +68,7 @@ export function FullPageCoach() {
 
   const insights = [
     `Your Eco-Score is ${user?.ecoScore ?? 0}/100.`,
-    `${(user?.totalCarbonSaved ?? 0).toFixed(1)} kg COâ‚‚ saved so far.`,
+    `${(user?.totalCarbonSaved ?? 0).toFixed(1)} kg CO₂ saved so far.`,
     `Current streak: ${user?.currentStreak ?? 0} day(s).`
   ];
 
@@ -81,15 +81,15 @@ export function FullPageCoach() {
             Live context
           </h3>
           <div className="space-y-3">
-            <div className="p-2 bg-black/20 rounded-md border border-white/5">
+            <div className="p-2 bg-secondary/60 rounded-md border border-border">
               <p className="text-[10px] text-muted-foreground uppercase mb-1">User</p>
-              <p className="text-xs text-foreground font-medium">{user?.name || 'Loadingâ€¦'}</p>
+              <p className="text-xs text-foreground font-medium">{user?.name || 'Loading…'}</p>
             </div>
-            <div className="p-2 bg-black/20 rounded-md border border-white/5">
+            <div className="p-2 bg-secondary/60 rounded-md border border-border">
               <p className="text-[10px] text-muted-foreground uppercase mb-1">Eco-Score</p>
               <p className="text-xs text-foreground font-medium">{user?.ecoScore ?? 0}/100</p>
             </div>
-            <div className="p-2 bg-black/20 rounded-md border border-white/5">
+            <div className="p-2 bg-secondary/60 rounded-md border border-border">
               <p className="text-[10px] text-muted-foreground uppercase mb-1">Streak</p>
               <p className="text-xs text-foreground font-medium">
                 {user?.currentStreak ?? 0} day(s)
@@ -98,14 +98,14 @@ export function FullPageCoach() {
           </div>
         </Card>
 
-        <Card className="bg-[#A9B85A]/5 border-[#A9B85A]/20 p-4">
-          <h3 className="text-sm font-bold text-[#A9B85A] flex items-center gap-2 mb-3">
+        <Card className="bg-brand-2/5 border-brand-2/20 p-4">
+          <h3 className="text-sm font-bold text-brand-2 flex items-center gap-2 mb-3">
             <Zap className="w-4 h-4" />
             Your insights
           </h3>
           <ul className="text-[11px] space-y-2 text-muted-foreground">
             {insights.map((i) => (
-              <li key={i}>â€¢ {i}</li>
+              <li key={i}>• {i}</li>
             ))}
           </ul>
         </Card>
@@ -115,12 +115,12 @@ export function FullPageCoach() {
         <div className="p-4 border-b border-border bg-secondary/20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="bg-primary p-2 rounded-xl ">
-              <Bot className="w-5 h-5 text-[#0B0B0A]" />
+              <Bot className="w-5 h-5 text-primary-foreground" />
             </div>
             <div>
               <h2 className="font-bold text-foreground flex items-center gap-2">
                 Eco-Coach Pro
-                <Sparkles className="w-3 h-3 text-yellow-400" />
+                <Sparkles className="w-3 h-3 text-yellow-600 dark:text-yellow-400" />
               </h2>
               <p className="text-[10px] text-primary flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full primary animate-pulse" />
@@ -153,19 +153,19 @@ export function FullPageCoach() {
                 >
                   <div
                     className={`mt-1 h-8 w-8 rounded-full flex items-center justify-center shrink-0 ${
-                      msg.role === 'user' ? 'bg-[#A9B85A]' : 'bg-primary'
+                      msg.role === 'user' ? 'bg-brand-2' : 'bg-primary'
                     }`}
                   >
                     {msg.role === 'user' ? (
-                      <UserIcon className="w-4 h-4 text-[#0B0B0A]" />
+                      <UserIcon className="w-4 h-4 text-primary-foreground" />
                     ) : (
-                      <Bot className="w-4 h-4 text-[#0B0B0A]" />
+                      <Bot className="w-4 h-4 text-primary-foreground" />
                     )}
                   </div>
                   <div
                     className={`rounded-2xl px-4 py-3 text-sm shadow-sm ${
                       msg.role === 'user'
-                        ? 'bg-primary text-[#0B0B0A] rounded-tr-sm'
+                        ? 'bg-primary text-primary-foreground rounded-tr-sm'
                         : 'bg-secondary/80 text-foreground rounded-tl-sm border border-border'
                     }`}
                   >
@@ -177,7 +177,7 @@ export function FullPageCoach() {
             {isTyping && (
               <div className="flex justify-start gap-3">
                 <div className="mt-1 h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-                  <Bot className="w-4 h-4 text-[#0B0B0A]" />
+                  <Bot className="w-4 h-4 text-primary-foreground" />
                 </div>
                 <div className="bg-secondary/80 text-foreground rounded-2xl rounded-tl-sm px-4 py-3 border border-border flex gap-2 items-center">
                   <span className="text-xs text-muted-foreground">Thinking</span>
@@ -193,7 +193,7 @@ export function FullPageCoach() {
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask anything about your carbon footprintâ€¦"
+              placeholder="Ask anything about your carbon footprint…"
               className="flex-1 bg-secondary border-border focus-visible:primary h-12 text-base"
               disabled={isTyping}
             />

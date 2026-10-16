@@ -41,9 +41,9 @@ export function AuthPage() {
   };
 
   return (
-    <div className="dark min-h-screen bg-[#0B0B0A] flex items-center justify-center p-3 sm:p-4 relative overflow-hidden text-foreground">
+    <div className="min-h-screen bg-background flex items-center justify-center p-3 sm:p-4 relative overflow-hidden text-foreground">
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#A9B85A]/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-2/10 rounded-full blur-[120px]" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export function AuthPage() {
           </div>
         </div>
 
-        <Card className="bg-white/[0.03] border-white/10 backdrop-blur-xl p-5 sm:p-8 rounded-3xl shadow-2xl relative overflow-hidden group">
+        <Card className="bg-card/80 border-border backdrop-blur-xl p-5 sm:p-8 rounded-3xl shadow-2xl relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
           <div className="text-center mb-8">
@@ -89,13 +89,13 @@ export function AuthPage() {
                   exit={{ opacity: 0, height: 0 }}
                   className="space-y-1.5"
                 >
-                  <label className="text-xs font-medium text-zinc-400 ml-1">Full name</label>
+                  <label className="text-xs font-medium text-muted-foreground ml-1">Full name</label>
                   <div className="relative">
-                    <User className="absolute left-3 top-3 w-4 h-4 text-zinc-500" />
+                    <User className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
                     <Input
                       required={!isLogin}
                       placeholder="Your name"
-                      className="pl-10 bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 rounded-xl h-11 text-foreground"
+                      className="pl-10 bg-secondary/60 border-border focus:border-primary/50 focus:ring-primary/20 rounded-xl h-11 text-foreground"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     />
@@ -105,14 +105,14 @@ export function AuthPage() {
             </AnimatePresence>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-zinc-400 ml-1">Email</label>
+              <label className="text-xs font-medium text-muted-foreground ml-1">Email</label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3 w-4 h-4 text-zinc-500" />
+                <Mail className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
                 <Input
                   required
                   type="email"
                   placeholder="you@example.com"
-                  className="pl-10 bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 rounded-xl h-11 text-foreground"
+                  className="pl-10 bg-secondary/60 border-border focus:border-primary/50 focus:ring-primary/20 rounded-xl h-11 text-foreground"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -120,15 +120,15 @@ export function AuthPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-zinc-400 ml-1">Password</label>
+              <label className="text-xs font-medium text-muted-foreground ml-1">Password</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 w-4 h-4 text-zinc-500" />
+                <Lock className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
                 <Input
                   required
                   type="password"
                   minLength={6}
                   placeholder="At least 6 characters"
-                  className="pl-10 bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 rounded-xl h-11 text-foreground"
+                  className="pl-10 bg-secondary/60 border-border focus:border-primary/50 focus:ring-primary/20 rounded-xl h-11 text-foreground"
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />
@@ -138,7 +138,7 @@ export function AuthPage() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full h-12 rounded-xl bg-primary hover:bg-primary text-[#0B0B0A] font-semibold transition-all group"
+              className="w-full h-12 rounded-xl bg-primary hover:bg-primary text-primary-foreground font-semibold transition-all group"
             >
               {isLoading ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
@@ -151,10 +151,10 @@ export function AuthPage() {
             </Button>
           </form>
 
-          <div className="mt-8 pt-6 border-t border-white/5 text-center">
+          <div className="mt-8 pt-6 border-t border-border text-center">
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="text-sm text-zinc-500 hover:text-primary transition-colors"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
               type="button"
             >
               {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
@@ -168,7 +168,7 @@ export function AuthPage() {
             JWT secured
           </div>
           <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-wider">
-            <Sparkles className="w-3 h-3 text-[#A9B85A]" />
+            <Sparkles className="w-3 h-3 text-brand-2" />
             AI-powered insights
           </div>
         </div>

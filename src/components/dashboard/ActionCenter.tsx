@@ -18,13 +18,13 @@ import { useDashboard } from '../../services/DashboardContext';
 const categoryColor = (category: string) => {
   switch (category) {
     case 'Browser':
-      return 'bg-[#A9B85A]/10 text-[#A9B85A] border-[#A9B85A]/20';
+      return 'bg-brand-2/10 text-brand-2 border-brand-2/20';
     case 'Hardware':
-      return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
+      return 'bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20';
     case 'Lifestyle':
       return 'bg-primary/10 text-primary border-primary/20';
     default:
-      return 'bg-gray-500/10 text-gray-400 border-gray-500/20';
+      return 'bg-muted text-muted-foreground border-border';
   }
 };
 
@@ -143,7 +143,7 @@ export function ActionCenter() {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-8 gap-3">
             <Loader2 className="w-6 h-6 animate-spin text-primary" />
-            <p className="text-xs text-muted-foreground">Loading suggestionsâ€¦</p>
+            <p className="text-xs text-muted-foreground">Loading suggestions…</p>
           </div>
         ) : aiUnavailable ? (
           <div className="text-center py-8 space-y-2">
@@ -195,10 +195,10 @@ export function ActionCenter() {
                       </Badge>
                       <div className="text-right">
                         <p className="text-xs font-medium text-primary">
-                          Save â‚¹{suggestion.potentialSavingsInr.toFixed(0)}
+                          Save ₹{suggestion.potentialSavingsInr.toFixed(0)}
                         </p>
                         <p className="text-xs text-muted-foreground">
-                          {suggestion.potentialSavingsKg.toFixed(2)} kg COâ‚‚
+                          {suggestion.potentialSavingsKg.toFixed(2)} kg CO₂
                         </p>
                       </div>
                     </div>

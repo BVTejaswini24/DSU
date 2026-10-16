@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -15,6 +14,7 @@ import {
 
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { clearAuth } from '../../services/api';
+import { toggleTheme, useTheme } from '../../services/theme';
 import type { UserMetrics } from '../../services/api';
 
 const navItems = [
@@ -32,21 +32,9 @@ interface SidebarProps {
 
 export function Sidebar({ user }: SidebarProps) {
   const location = useLocation();
-  const [isDark, setIsDark] = React.useState(() =>
-    document.documentElement.classList.contains('dark')
-  );
-
-  const toggleTheme = () => {
-    const newDark = !isDark;
-    setIsDark(newDark);
-    if (newDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('carbontwin_theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('carbontwin_theme', 'light');
-    }
-  };
+  // Shared theme state: the icon always mirrors the active theme, and
+  // toggling updates <html>, localStorage and every other subscriber.
+  const isDark = useTheme() === 'dark';
 
   const handleLogout = () => {
     clearAuth();
@@ -115,7 +103,7 @@ export function Sidebar({ user }: SidebarProps) {
           </Avatar>
           <div className="flex flex-col min-w-0">
             <span className="text-sm font-medium text-foreground truncate">
-              {user?.name || 'Loadingâ€¦'}
+              {user?.name || 'Loading…'}
             </span>
             <span className="text-xs text-muted-foreground">
               Score: {user?.ecoScore ?? 0}

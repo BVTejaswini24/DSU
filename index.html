@@ -5,6 +5,22 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CarbonIQ Dashboard</title>
+    <script>
+      /* Apply the persisted CarbonIQ theme before first paint so the page
+         never flashes the wrong theme on reload. Kept in sync with
+         src/services/theme.ts (same storage key). */
+      (function () {
+        var theme = 'dark';
+        try {
+          var stored = localStorage.getItem('carbontwin_theme');
+          if (stored === 'light' || stored === 'dark') theme = stored;
+        } catch (e) {
+          /* storage unavailable — fall back to the default theme */
+        }
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -24,7 +24,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#A9B85A]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-2/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10 pointer-events-none">
         <motion.div
@@ -40,7 +40,7 @@ export function HeroSection() {
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
             Turn invisible{' '}
-            <span className="font-pixel text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#A9B85A]">
+            <span className="font-pixel text-transparent bg-clip-text bg-gradient-to-r from-primary to-brand-2">
               emissions
             </span>{' '}
             into visible <span className="text-primary">savings.</span>
@@ -56,7 +56,7 @@ export function HeroSection() {
             <Link to="/auth">
               <Button
                 size="lg"
-                className="h-14 px-8 text-base bg-primary hover:bg-primary/85 text-[#0B0B0A] font-semibold shadow-[0_0_20px_rgba(212,231,106,0.4)] transition-all hover:shadow-[0_0_30px_rgba(212,231,106,0.6)]"
+                className="h-14 px-8 text-base bg-primary hover:bg-primary/85 text-primary-foreground font-semibold shadow-[0_0_20px_rgba(212,231,106,0.4)] transition-all hover:shadow-[0_0_30px_rgba(212,231,106,0.6)]"
               >
                 Get started <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

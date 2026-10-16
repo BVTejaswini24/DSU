@@ -7,7 +7,7 @@ import { Button } from '../ui/button';
 export function CTASection() {
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#141412]" />
+      <div className="absolute inset-0 bg-secondary" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -29,7 +29,7 @@ export function CTASection() {
             <Link to="/auth">
               <Button
                 size="lg"
-                className="h-14 px-8 text-lg bg-primary hover:bg-primary/85 text-[#0B0B0A] font-semibold w-full sm:w-auto"
+                className="h-14 px-8 text-lg bg-primary hover:bg-primary/85 text-primary-foreground font-semibold w-full sm:w-auto"
               >
                 Create free account <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

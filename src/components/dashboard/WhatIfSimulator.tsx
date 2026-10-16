@@ -15,6 +15,7 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { api, ApiError, Suggestion } from '../../services/api';
 import { useDashboard } from '../../services/DashboardContext';
+import { useThemeColors } from '../../services/theme';
 
 interface SimResult {
   savingsPercent: number;
@@ -34,6 +35,9 @@ const EMPTY_RESULT: SimResult = {
 
 export function WhatIfSimulator() {
   const { refresh } = useDashboard();
+  // framer-motion cannot interpolate CSS variables, so the animated number
+  // colours are read from the active theme's palette instead.
+  const colors = useThemeColors();
 
   const [videoQuality, setVideoQuality] = useState([50]);
   const [acTemp, setAcTemp] = useState([50]);
@@ -165,8 +169,8 @@ export function WhatIfSimulator() {
   }) => (
     <motion.span
       key={value.toFixed(2)}
-      initial={{ scale: 1.15, color: '#D4E76A' }}
-      animate={{ scale: 1, color: '#e5e7eb' }}
+      initial={{ scale: 1.15, color: colors.primary }}
+      animate={{ scale: 1, color: colors.foreground }}
       transition={{ duration: 0.3 }}
       className="text-xl font-bold block"
     >
@@ -180,7 +184,7 @@ export function WhatIfSimulator() {
     <Card className="bg-card border-border">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Zap className="w-5 h-5 text-yellow-400" />
+          <Zap className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
           What-If Simulator
         </CardTitle>
         <CardDescription>
@@ -202,7 +206,7 @@ export function WhatIfSimulator() {
           <div className="flex justify-between">
             <label className="text-sm font-medium">AC thermostat</label>
             <span className="text-sm text-muted-foreground">
-              {Math.round(18 + (acTemp[0] / 100) * 8)}Â°C
+              {Math.round(18 + (acTemp[0] / 100) * 8)}°C
             </span>
           </div>
           <Slider value={acTemp} onValueChange={setAcTemp} max={100} step={1} />
@@ -253,30 +257,30 @@ export function WhatIfSimulator() {
             }`}
           >
             <div className="bg-secondary/50 p-3 rounded-lg">
-              <p className="text-xs text-muted-foreground mb-1">Daily COâ‚‚ saved</p>
+              <p className="text-xs text-muted-foreground mb-1">Daily CO₂ saved</p>
               <AnimatedNumber value={simulation.carbonSavedKg} suffix=" kg" />
             </div>
             <div className="bg-secondary/50 p-3 rounded-lg">
-              <p className="text-xs text-muted-foreground mb-1">Daily â‚¹ saved</p>
-              <AnimatedNumber value={simulation.rupeesSavedInr} prefix="â‚¹" />
+              <p className="text-xs text-muted-foreground mb-1">Daily ₹ saved</p>
+              <AnimatedNumber value={simulation.rupeesSavedInr} prefix="₹" />
             </div>
             <div className="bg-primary/5 border primary p-3 rounded-lg col-span-2">
               <p className="text-xs text-muted-foreground mb-1">Annual projection</p>
               <p className="text-sm font-semibold text-primary">
-                {simulation.annualCarbonSavedKg.toFixed(1)} kg COâ‚‚ Â· â‚¹
+                {simulation.annualCarbonSavedKg.toFixed(1)} kg CO₂ · ₹
                 {simulation.annualRupeesSavedInr.toLocaleString('en-IN')}
               </p>
             </div>
           </div>
 
           <Button
-            className="w-full bg-primary hover:bg-primary text-[#0B0B0A] font-semibold h-11"
+            className="w-full bg-primary hover:bg-primary text-primary-foreground font-semibold h-11"
             disabled={applying || simulation.carbonSavedKg === 0}
             onClick={applyHabits}
           >
             {applying ? (
               <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Applyingâ€¦
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Applying…
               </>
             ) : (
               'Apply to my account'
@@ -329,7 +333,7 @@ export function WhatIfSimulator() {
                         {tip.category}
                       </Badge>
                       <span className="text-xs text-primary/80">
-                        {tip.potentialSavingsKg.toFixed(2)} kg | â‚¹{tip.potentialSavingsInr.toFixed(0)}
+                        {tip.potentialSavingsKg.toFixed(2)} kg | ₹{tip.potentialSavingsInr.toFixed(0)}
                       </span>
                     </div>
                     <p className="text-sm">{tip.text}</p>
@@ -344,7 +348,7 @@ export function WhatIfSimulator() {
                       </Button>
                       <Button
                         size="sm"
-                        className="bg-primary hover:bg-primary text-[#0B0B0A]"
+                        className="bg-primary hover:bg-primary text-primary-foreground"
                         disabled={actingTipId === tip.id}
                         onClick={() => applyTip(tip.id, 'accept')}
                       >

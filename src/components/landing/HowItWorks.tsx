@@ -10,7 +10,7 @@ import {
 const steps = [
   {
     title: "1. Real-time Ingestion",
-    description: "Our lightweight agents monitor your digital footprintâ€”from browser tabs to hardware energy drawâ€”without ever compromising privacy.",
+    description: "Our lightweight agents monitor your digital footprint—from browser tabs to hardware energy draw—without ever compromising privacy.",
     icon: Scan,
     color: "cyan"
   },
@@ -40,7 +40,7 @@ export function HowItWorks() {
       {/* Background Decorations */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#A9B85A]/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-2/5 rounded-full blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

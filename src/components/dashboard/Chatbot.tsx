@@ -78,7 +78,7 @@ export function Chatbot() {
               className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-primary hover:bg-primary/80 "
               onClick={() => setIsOpen(true)}
             >
-              <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-[#0B0B0A]" />
+              <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-primary-foreground" />
             </Button>
           </motion.div>
         )}
@@ -92,15 +92,15 @@ export function Chatbot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             className="fixed bottom-20 right-3 left-3 h-[68vh] sm:bottom-6 sm:right-6 sm:left-auto sm:w-96 sm:h-[520px] bg-card border border-border rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden"
           >
-            <div className="bg-[#141412]/60 border-b border-primary/20 p-4 flex items-center justify-between">
+            <div className="bg-secondary/60 border-b border-primary/20 p-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="bg-primary p-1.5 rounded-lg">
-                  <Bot className="w-5 h-5 text-[#0B0B0A]" />
+                  <Bot className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <div>
                   <h3 className="font-bold text-sm text-foreground flex items-center gap-1">
                     Eco-Coach
-                    <Sparkles className="w-3 h-3 text-yellow-400" />
+                    <Sparkles className="w-3 h-3 text-yellow-600 dark:text-yellow-400" />
                   </h3>
                   <p className="text-[10px] text-primary flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full primary animate-pulse" />
@@ -128,7 +128,7 @@ export function Chatbot() {
                     <div
                       className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm ${
                         msg.role === 'user'
-                          ? 'bg-primary text-[#0B0B0A] rounded-tr-sm'
+                          ? 'bg-primary text-primary-foreground rounded-tr-sm'
                           : 'bg-secondary text-foreground rounded-tl-sm border border-border'
                       }`}
                     >
@@ -174,7 +174,7 @@ export function Chatbot() {
                 <Input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask the Coachâ€¦"
+                  placeholder="Ask the Coach…"
                   className="bg-secondary border-border focus-visible:primary"
                   disabled={isTyping}
                 />

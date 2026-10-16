@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { useDashboard } from '../../services/DashboardContext';
+import { useThemeColors } from '../../services/theme';
 
 const tagline = (score: number, hasActivity: boolean) => {
   if (!hasActivity && score === 0) return 'Log activity to start growing your score.';
@@ -11,6 +12,9 @@ const tagline = (score: number, hasActivity: boolean) => {
 
 export function EcoScoreGauge() {
   const { user } = useDashboard();
+  // SVG presentation attributes cannot read CSS variables, so the gradient
+  // and track colours are resolved from the active theme's palette.
+  const colors = useThemeColors();
   const score = user?.ecoScore ?? 0;
   const hasActivity = (user?.totalCarbonSaved ?? 0) > 0 || (user?.currentStreak ?? 0) > 0;
 
@@ -21,7 +25,7 @@ export function EcoScoreGauge() {
   return (
     <Card className="bg-card border-border overflow-hidden group">
       <CardHeader>
-        <CardTitle className="text-center text-zinc-400 text-sm font-medium uppercase tracking-wider">
+        <CardTitle className="text-center text-muted-foreground text-sm font-medium uppercase tracking-wider">
           Your Eco-Score
         </CardTitle>
       </CardHeader>
@@ -31,15 +35,15 @@ export function EcoScoreGauge() {
           <svg className="w-full h-full transform -rotate-90 filter ">
             <defs>
               <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#D4E76A" />
-                <stop offset="100%" stopColor="#A9B85A" />
+                <stop offset="0%" stopColor={colors.chartSaved} />
+                <stop offset="100%" stopColor={colors.brand2} />
               </linearGradient>
             </defs>
             <circle
               cx="80"
               cy="80"
               r={radius}
-              stroke="rgba(255,255,255,0.05)"
+              stroke={colors.chartGrid}
               strokeWidth="10"
               fill="transparent"
             />
@@ -58,12 +62,12 @@ export function EcoScoreGauge() {
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span className="text-4xl font-black text-foreground tracking-tighter">{score}</span>
-            <span className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mt-1">
+            <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
               Efficiency
             </span>
           </div>
         </div>
-        <p className="text-xs text-center text-zinc-400 mt-6 max-w-[220px] leading-relaxed">
+        <p className="text-xs text-center text-muted-foreground mt-6 max-w-[220px] leading-relaxed">
           {tagline(score, hasActivity)}
         </p>
       </CardContent>

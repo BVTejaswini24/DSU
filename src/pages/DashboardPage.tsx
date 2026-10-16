@@ -141,13 +141,13 @@ function DashboardShell() {
             <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
               {error ? (
                 <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1.5 rounded-full">
-                  <span className="flex h-2 w-2 rounded-full bg-red-400" />
-                  <span className="text-sm font-medium text-red-300">Needs attention</span>
+                  <span className="flex h-2 w-2 rounded-full bg-red-500 dark:bg-red-400" />
+                  <span className="text-sm font-medium text-red-600 dark:text-red-300">Needs attention</span>
                 </div>
               ) : loading ? (
                 <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-full">
-                  <Loader2 className="w-3.5 h-3.5 animate-spin text-amber-300" />
-                  <span className="text-sm font-medium text-amber-300">Syncing</span>
+                  <Loader2 className="w-3.5 h-3.5 animate-spin text-amber-600 dark:text-amber-300" />
+                  <span className="text-sm font-medium text-amber-600 dark:text-amber-300">Syncing</span>
                 </div>
               ) : (
                 <div className="flex flex-col bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full">
@@ -188,15 +188,8 @@ function DashboardShell() {
 }
 
 export function DashboardPage() {
-  React.useEffect(() => {
-    const savedTheme = localStorage.getItem('carbontwin_theme');
-    if (savedTheme === 'light') {
-      document.documentElement.classList.remove('dark');
-    } else {
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
+  // Theme is global (src/services/theme.ts) — it is applied before first
+  // paint by the index.html bootstrap script and toggled from the Sidebar.
   return (
     <DashboardProvider>
       <DashboardShell />
